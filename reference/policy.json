@@ -1,0 +1,12 @@
+{
+  "name": "Demo Primary School longitudinal evidence rubric",
+  "version": 1,
+  "synthetic": true,
+  "minimum_terms": 3,
+  "strength_floor": 70,
+  "support_ceiling": 45,
+  "improvement_points": 15,
+  "minimum_assessments": 3,
+  "scope": "Compare the same learner and skill across dated terms. Describe demonstrated performance on these assessments. Never assign an ability identity, diagnosis, career or subject track. Attendance and notes provide context, not causal explanations.",
+  "review": "Every finding needs its source assessment IDs. A teacher reviews the evidence before approval. Guardian release requires a recorded teacher-guardian conversation."
+}

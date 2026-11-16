@@ -1,0 +1,18 @@
+/workspace/scratch/dde62a0a0583/learner-evidence-studio/.venv/lib/python3.12/site-packages/pydantic_settings/sources/utils.py:51: IncompleteFieldDefinitionWarning: Field 'lifespan' has an incomplete definition: its annotation contains an unresolved forward reference, so settings sources may fail to correctly resolve its value. Call `model_rebuild()` on the model where the field is defined, once all the referenced types are defined.
+  warnings.warn(  # noqa: B028  (called from many sources at differing depths, so no stacklevel is correct)
+Secure MCP Filesystem Server running on stdio
+Read-only mode: only tools that cannot change the filesystem are served
+Effective allowed directories (from the command line):
+  /workspace/scratch/dde62a0a0583/learner-evidence-studio/reference
+Processing request of type ListToolsRequest
+Client does not support MCP Roots, using allowed directories set from server args: [ '/workspace/scratch/dde62a0a0583/learner-evidence-studio/reference' ]
+Effective allowed directories (from the command line):
+  /workspace/scratch/dde62a0a0583/learner-evidence-studio/reference
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Processing request of type CallToolRequest
+Processing request of type CallToolRequest
+Processing request of type CallToolRequest
+Processing request of type CallToolRequest
+Processing request of type CallToolRequest
+Processing request of type CallToolRequest
+Processing request of type CallToolRequest

@@ -1,0 +1,8 @@
+{
+  "command": "python run.py",
+  "fresh_virtual_environment": true,
+  "status": "PASS",
+  "health": {
+    "status": "ok"
+  }
+}

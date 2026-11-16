@@ -1,0 +1,1230 @@
+{
+  "run": {
+    "id": "72da3e12e1dc4c27a43154794c0cd247",
+    "learner_id": "L003",
+    "teacher_id": "demo.teacher",
+    "status": "completed",
+    "provider": "local",
+    "model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "started_at": "2026-11-12T12:16:51.727+00:00",
+    "finished_at": "2026-11-12T12:16:58.746+00:00",
+    "error": null,
+    "profile_id": "c584011251654657827a8667c68e95f1",
+    "input_tokens": 1396,
+    "output_tokens": 35,
+    "model_calls": 5
+  },
+  "events": [
+    {
+      "id": 110,
+      "at": "2026-11-12T12:16:51.727+00:00",
+      "actor": "demo.teacher",
+      "action": "request_profile_review",
+      "inputs": {
+        "learner_id": "L003"
+      },
+      "outputs": {
+        "provider": "local",
+        "run_id": "72da3e12e1dc4c27a43154794c0cd247"
+      },
+      "run_id": "72da3e12e1dc4c27a43154794c0cd247",
+      "status": "ok"
+    },
+    {
+      "id": 111,
+      "at": "2026-11-12T12:16:52.410+00:00",
+      "actor": "agent",
+      "action": "mcp_discover",
+      "inputs": {
+        "server": "learner"
+      },
+      "outputs": {
+        "tools": [
+          "get_learner_evidence",
+          "assess_longitudinal_patterns",
+          "validate_learner_profile",
+          "save_profile_draft"
+        ]
+      },
+      "run_id": "72da3e12e1dc4c27a43154794c0cd247",
+      "status": "ok"
+    },
+    {
+      "id": 112,
+      "at": "2026-11-12T12:16:52.419+00:00",
+      "actor": "agent",
+      "action": "mcp_discover",
+      "inputs": {
+        "server": "reference"
+      },
+      "outputs": {
+        "tools": [
+          "read_file",
+          "read_text_file",
+          "read_media_file",
+          "read_multiple_files",
+          "list_directory",
+          "list_directory_with_sizes",
+          "directory_tree",
+          "search_files",
+          "get_file_info",
+          "list_allowed_directories"
+        ]
+      },
+      "run_id": "72da3e12e1dc4c27a43154794c0cd247",
+      "status": "ok"
+    },
+    {
+      "id": 113,
+      "at": "2026-11-12T12:16:52.419+00:00",
+      "actor": "agent",
+      "action": "reference.read_text_file.request",
+      "inputs": {
+        "path": "/workspace/scratch/dde62a0a0583/learner-evidence-studio/reference/policy.json"
+      },
+      "outputs": {
+        "status": "started"
+      },
+      "run_id": "72da3e12e1dc4c27a43154794c0cd247",
+      "status": "ok"
+    },
+    {
+      "id": 114,
+      "at": "2026-11-12T12:16:52.427+00:00",
+      "actor": "agent",
+      "action": "reference.read_text_file",
+      "inputs": {
+        "path": "/workspace/scratch/dde62a0a0583/learner-evidence-studio/reference/policy.json"
+      },
+      "outputs": {
+        "improvement_points": 15,
+        "minimum_assessments": 3,
+        "minimum_terms": 3,
+        "name": "Demo Primary School longitudinal evidence rubric",
+        "review": "Every finding needs its source assessment IDs. A teacher reviews the evidence before approval. Guardian release requires a recorded teacher-guardian conversation.",
+        "scope": "Compare the same learner and skill across dated terms. Describe demonstrated performance on these assessments. Never assign an ability identity, diagnosis, career or subject track. Attendance and notes provide context, not causal explanations.",
+        "strength_floor": 70,
+        "support_ceiling": 45,
+        "synthetic": true,
+        "version": 1
+      },
+      "run_id": "72da3e12e1dc4c27a43154794c0cd247",
+      "status": "ok"
+    },
+    {
+      "id": 115,
+      "at": "2026-11-12T12:16:53.208+00:00",
+      "actor": "agent",
+      "action": "model_plan",
+      "inputs": {
+        "goal": "Review this learner's assessment history for sustained patterns and changes.",
+        "minimum_terms": 3,
+        "observations": {},
+        "options": [
+          "get_recent",
+          "get_all"
+        ],
+        "previous_error": ""
+      },
+      "outputs": {
+        "decision": {
+          "action": "get_recent",
+          "reason": "Model selected this permitted action."
+        },
+        "usage": {
+          "api_cost_usd": 0,
+          "decoding": "greedy_model_logits_with_finite_action_json_grammar",
+          "execution": "local_open_weights",
+          "input_tokens": 177,
+          "latency_ms": 771,
+          "model": "Qwen/Qwen2.5-0.5B-Instruct",
+          "output_tokens": 7,
+          "revision": "7ae557604adf67be50417f59c2c2f167def9a775"
+        }
+      },
+      "run_id": "72da3e12e1dc4c27a43154794c0cd247",
+      "status": "ok"
+    },
+    {
+      "id": 116,
+      "at": "2026-11-12T12:16:53.210+00:00",
+      "actor": "agent",
+      "action": "get_learner_evidence.request",
+      "inputs": {
+        "learner_id": "L003",
+        "scope": "recent"
+      },
+      "outputs": {
+        "status": "started"
+      },
+      "run_id": "72da3e12e1dc4c27a43154794c0cd247",
+      "status": "ok"
+    },
+    {
+      "id": 117,
+      "at": "2026-11-12T12:16:53.214+00:00",
+      "actor": "agent",
+      "action": "get_learner_evidence",
+      "inputs": {
+        "learner_id": "L003",
+        "scope": "recent"
+      },
+      "outputs": {
+        "evidence": [
+          {
+            "academic_year": 2025,
+            "id": "L003-rea-2025-3-0",
+            "kind": "assessment",
+            "learner_id": "L003",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2025-09-10",
+            "recorded_at": "2025-09-28",
+            "reliable": 1,
+            "score": 60.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://L003/2025/T3/reading_comprehension/0",
+            "term": 3,
+            "title": "Reading Comprehension task 1"
+          },
+          {
+            "academic_year": 2025,
+            "id": "L003-spa-2025-3-0",
+            "kind": "assessment",
+            "learner_id": "L003",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2025-09-10",
+            "recorded_at": "2025-09-28",
+            "reliable": 1,
+            "score": 48.0,
+            "skill": "spatial_reasoning",
+            "source": "synthetic://L003/2025/T3/spatial_reasoning/0",
+            "term": 3,
+            "title": "Spatial Reasoning task 1"
+          },
+          {
+            "academic_year": 2025,
+            "id": "L003-rea-2025-3-1",
+            "kind": "assessment",
+            "learner_id": "L003",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2025-09-18",
+            "recorded_at": "2025-09-28",
+            "reliable": 1,
+            "score": 56.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://L003/2025/T3/reading_comprehension/1",
+            "term": 3,
+            "title": "Reading Comprehension task 2"
+          },
+          {
+            "academic_year": 2025,
+            "id": "L003-spa-2025-3-1",
+            "kind": "assessment",
+            "learner_id": "L003",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2025-09-18",
+            "recorded_at": "2025-09-28",
+            "reliable": 1,
+            "score": 44.0,
+            "skill": "spatial_reasoning",
+            "source": "synthetic://L003/2025/T3/spatial_reasoning/1",
+            "term": 3,
+            "title": "Spatial Reasoning task 2"
+          },
+          {
+            "academic_year": 2026,
+            "id": "L003-rea-2026-1-0",
+            "kind": "assessment",
+            "learner_id": "L003",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2026-03-10",
+            "recorded_at": "2026-03-28",
+            "reliable": 1,
+            "score": 80.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://L003/2026/T1/reading_comprehension/0",
+            "term": 1,
+            "title": "Reading Comprehension task 1"
+          },
+          {
+            "academic_year": 2026,
+            "id": "L003-spa-2026-1-0",
+            "kind": "assessment",
+            "learner_id": "L003",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2026-03-10",
+            "recorded_at": "2026-03-28",
+            "reliable": 1,
+            "score": 73.0,
+            "skill": "spatial_reasoning",
+            "source": "synthetic://L003/2026/T1/spatial_reasoning/0",
+            "term": 1,
+            "title": "Spatial Reasoning task 1"
+          },
+          {
+            "academic_year": 2026,
+            "id": "L003-rea-2026-1-1",
+            "kind": "assessment",
+            "learner_id": "L003",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2026-03-18",
+            "recorded_at": "2026-03-28",
+            "reliable": 1,
+            "score": 76.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://L003/2026/T1/reading_comprehension/1",
+            "term": 1,
+            "title": "Reading Comprehension task 2"
+          },
+          {
+            "academic_year": 2026,
+            "id": "L003-spa-2026-1-1",
+            "kind": "assessment",
+            "learner_id": "L003",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2026-03-18",
+            "recorded_at": "2026-03-28",
+            "reliable": 1,
+            "score": 69.0,
+            "skill": "spatial_reasoning",
+            "source": "synthetic://L003/2026/T1/spatial_reasoning/1",
+            "term": 1,
+            "title": "Spatial Reasoning task 2"
+          }
+        ],
+        "learner_id": "L003",
+        "revision": 1,
+        "scope": "recent",
+        "term_count": 2,
+        "year_count": 2
+      },
+      "run_id": "72da3e12e1dc4c27a43154794c0cd247",
+      "status": "ok"
+    },
+    {
+      "id": 118,
+      "at": "2026-11-12T12:16:54.151+00:00",
+      "actor": "agent",
+      "action": "model_plan",
+      "inputs": {
+        "goal": "Review this learner's assessment history for sustained patterns and changes.",
+        "minimum_terms": 3,
+        "observations": {
+          "assessment_percentages_in_date_order": {
+            "reading_comprehension": [
+              60.0,
+              56.0,
+              80.0,
+              76.0
+            ],
+            "spatial_reasoning": [
+              48.0,
+              44.0,
+              73.0,
+              69.0
+            ]
+          },
+          "scope": "recent",
+          "term_count": 2,
+          "year_count": 2
+        },
+        "options": [
+          "get_all",
+          "assess_trajectory",
+          "assess_consistency"
+        ],
+        "previous_error": ""
+      },
+      "outputs": {
+        "decision": {
+          "action": "get_all",
+          "reason": "Model selected this permitted action."
+        },
+        "usage": {
+          "api_cost_usd": 0,
+          "decoding": "greedy_model_logits_with_finite_action_json_grammar",
+          "execution": "local_open_weights",
+          "input_tokens": 272,
+          "latency_ms": 932,
+          "model": "Qwen/Qwen2.5-0.5B-Instruct",
+          "output_tokens": 7,
+          "revision": "7ae557604adf67be50417f59c2c2f167def9a775"
+        }
+      },
+      "run_id": "72da3e12e1dc4c27a43154794c0cd247",
+      "status": "ok"
+    },
+    {
+      "id": 119,
+      "at": "2026-11-12T12:16:54.153+00:00",
+      "actor": "agent",
+      "action": "get_learner_evidence.request",
+      "inputs": {
+        "learner_id": "L003",
+        "scope": "all"
+      },
+      "outputs": {
+        "status": "started"
+      },
+      "run_id": "72da3e12e1dc4c27a43154794c0cd247",
+      "status": "ok"
+    },
+    {
+      "id": 120,
+      "at": "2026-11-12T12:16:54.156+00:00",
+      "actor": "agent",
+      "action": "get_learner_evidence",
+      "inputs": {
+        "learner_id": "L003",
+        "scope": "all"
+      },
+      "outputs": {
+        "evidence": [
+          {
+            "academic_year": 2025,
+            "id": "L003-rea-2025-3-0",
+            "kind": "assessment",
+            "learner_id": "L003",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2025-09-10",
+            "recorded_at": "2025-09-28",
+            "reliable": 1,
+            "score": 60.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://L003/2025/T3/reading_comprehension/0",
+            "term": 3,
+            "title": "Reading Comprehension task 1"
+          },
+          {
+            "academic_year": 2025,
+            "id": "L003-spa-2025-3-0",
+            "kind": "assessment",
+            "learner_id": "L003",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2025-09-10",
+            "recorded_at": "2025-09-28",
+            "reliable": 1,
+            "score": 48.0,
+            "skill": "spatial_reasoning",
+            "source": "synthetic://L003/2025/T3/spatial_reasoning/0",
+            "term": 3,
+            "title": "Spatial Reasoning task 1"
+          },
+          {
+            "academic_year": 2025,
+            "id": "L003-rea-2025-3-1",
+            "kind": "assessment",
+            "learner_id": "L003",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2025-09-18",
+            "recorded_at": "2025-09-28",
+            "reliable": 1,
+            "score": 56.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://L003/2025/T3/reading_comprehension/1",
+            "term": 3,
+            "title": "Reading Comprehension task 2"
+          },
+          {
+            "academic_year": 2025,
+            "id": "L003-spa-2025-3-1",
+            "kind": "assessment",
+            "learner_id": "L003",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2025-09-18",
+            "recorded_at": "2025-09-28",
+            "reliable": 1,
+            "score": 44.0,
+            "skill": "spatial_reasoning",
+            "source": "synthetic://L003/2025/T3/spatial_reasoning/1",
+            "term": 3,
+            "title": "Spatial Reasoning task 2"
+          },
+          {
+            "academic_year": 2026,
+            "id": "L003-rea-2026-1-0",
+            "kind": "assessment",
+            "learner_id": "L003",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2026-03-10",
+            "recorded_at": "2026-03-28",
+            "reliable": 1,
+            "score": 80.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://L003/2026/T1/reading_comprehension/0",
+            "term": 1,
+            "title": "Reading Comprehension task 1"
+          },
+          {
+            "academic_year": 2026,
+            "id": "L003-spa-2026-1-0",
+            "kind": "assessment",
+            "learner_id": "L003",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2026-03-10",
+            "recorded_at": "2026-03-28",
+            "reliable": 1,
+            "score": 73.0,
+            "skill": "spatial_reasoning",
+            "source": "synthetic://L003/2026/T1/spatial_reasoning/0",
+            "term": 1,
+            "title": "Spatial Reasoning task 1"
+          },
+          {
+            "academic_year": 2026,
+            "id": "L003-rea-2026-1-1",
+            "kind": "assessment",
+            "learner_id": "L003",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2026-03-18",
+            "recorded_at": "2026-03-28",
+            "reliable": 1,
+            "score": 76.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://L003/2026/T1/reading_comprehension/1",
+            "term": 1,
+            "title": "Reading Comprehension task 2"
+          },
+          {
+            "academic_year": 2026,
+            "id": "L003-spa-2026-1-1",
+            "kind": "assessment",
+            "learner_id": "L003",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2026-03-18",
+            "recorded_at": "2026-03-28",
+            "reliable": 1,
+            "score": 69.0,
+            "skill": "spatial_reasoning",
+            "source": "synthetic://L003/2026/T1/spatial_reasoning/1",
+            "term": 1,
+            "title": "Spatial Reasoning task 2"
+          }
+        ],
+        "learner_id": "L003",
+        "revision": 1,
+        "scope": "all",
+        "term_count": 2,
+        "year_count": 2
+      },
+      "run_id": "72da3e12e1dc4c27a43154794c0cd247",
+      "status": "ok"
+    },
+    {
+      "id": 121,
+      "at": "2026-11-12T12:16:55.392+00:00",
+      "actor": "agent",
+      "action": "model_plan",
+      "inputs": {
+        "goal": "Review this learner's assessment history for sustained patterns and changes.",
+        "minimum_terms": 3,
+        "observations": {
+          "assessment_percentages_in_date_order": {
+            "reading_comprehension": [
+              60.0,
+              56.0,
+              80.0,
+              76.0
+            ],
+            "spatial_reasoning": [
+              48.0,
+              44.0,
+              73.0,
+              69.0
+            ]
+          },
+          "scope": "all",
+          "term_count": 2,
+          "year_count": 2
+        },
+        "options": [
+          "assess_trajectory",
+          "assess_consistency"
+        ],
+        "previous_error": ""
+      },
+      "outputs": {
+        "decision": {
+          "action": "assess_consistency",
+          "reason": "Model selected this permitted action."
+        },
+        "usage": {
+          "api_cost_usd": 0,
+          "decoding": "greedy_model_logits_with_finite_action_json_grammar",
+          "execution": "local_open_weights",
+          "input_tokens": 268,
+          "latency_ms": 1229,
+          "model": "Qwen/Qwen2.5-0.5B-Instruct",
+          "output_tokens": 9,
+          "revision": "7ae557604adf67be50417f59c2c2f167def9a775"
+        }
+      },
+      "run_id": "72da3e12e1dc4c27a43154794c0cd247",
+      "status": "ok"
+    },
+    {
+      "id": 122,
+      "at": "2026-11-12T12:16:55.393+00:00",
+      "actor": "agent",
+      "action": "assess_longitudinal_patterns.request",
+      "inputs": {
+        "learner_id": "L003",
+        "lens": "consistency",
+        "policy": {
+          "improvement_points": 15,
+          "minimum_assessments": 3,
+          "minimum_terms": 3,
+          "name": "Demo Primary School longitudinal evidence rubric",
+          "review": "Every finding needs its source assessment IDs. A teacher reviews the evidence before approval. Guardian release requires a recorded teacher-guardian conversation.",
+          "scope": "Compare the same learner and skill across dated terms. Describe demonstrated performance on these assessments. Never assign an ability identity, diagnosis, career or subject track. Attendance and notes provide context, not causal explanations.",
+          "strength_floor": 70,
+          "support_ceiling": 45,
+          "synthetic": true,
+          "version": 1
+        },
+        "scope": "all"
+      },
+      "outputs": {
+        "status": "started"
+      },
+      "run_id": "72da3e12e1dc4c27a43154794c0cd247",
+      "status": "ok"
+    },
+    {
+      "id": 123,
+      "at": "2026-11-12T12:16:55.397+00:00",
+      "actor": "agent",
+      "action": "assess_longitudinal_patterns",
+      "inputs": {
+        "learner_id": "L003",
+        "lens": "consistency",
+        "policy": {
+          "improvement_points": 15,
+          "minimum_assessments": 3,
+          "minimum_terms": 3,
+          "name": "Demo Primary School longitudinal evidence rubric",
+          "review": "Every finding needs its source assessment IDs. A teacher reviews the evidence before approval. Guardian release requires a recorded teacher-guardian conversation.",
+          "scope": "Compare the same learner and skill across dated terms. Describe demonstrated performance on these assessments. Never assign an ability identity, diagnosis, career or subject track. Attendance and notes provide context, not causal explanations.",
+          "strength_floor": 70,
+          "support_ceiling": 45,
+          "synthetic": true,
+          "version": 1
+        },
+        "scope": "all"
+      },
+      "outputs": {
+        "caveats": [
+          "These observations describe the supplied assessments and their recorded skill tags.",
+          "Different assessment difficulty, missing records and changes in teaching may affect comparisons.",
+          "Teachers determine appropriate support through discussion with the learner and guardian."
+        ],
+        "context_ids": [],
+        "evidence_revision": 1,
+        "excluded_ids": [],
+        "findings": [
+          {
+            "evidence_ids": [
+              "L003-rea-2025-3-0",
+              "L003-rea-2025-3-1",
+              "L003-rea-2026-1-0",
+              "L003-rea-2026-1-1"
+            ],
+            "kind": "insufficient",
+            "skill": "reading_comprehension",
+            "statement": "Only 2 terms of reliable reading comprehension assessments are available. A sustained pattern is not established.",
+            "trend": [
+              {
+                "percent": 58.0,
+                "term": 3,
+                "year": 2025
+              },
+              {
+                "percent": 78.0,
+                "term": 1,
+                "year": 2026
+              }
+            ]
+          },
+          {
+            "evidence_ids": [
+              "L003-spa-2025-3-0",
+              "L003-spa-2025-3-1",
+              "L003-spa-2026-1-0",
+              "L003-spa-2026-1-1"
+            ],
+            "kind": "insufficient",
+            "skill": "spatial_reasoning",
+            "statement": "Only 2 terms of reliable spatial reasoning assessments are available. A sustained pattern is not established.",
+            "trend": [
+              {
+                "percent": 46.0,
+                "term": 3,
+                "year": 2025
+              },
+              {
+                "percent": 71.0,
+                "term": 1,
+                "year": 2026
+              }
+            ]
+          }
+        ],
+        "learner_id": "L003",
+        "lens": "consistency",
+        "policy_hash": "9a379178b5020d50df9bee003713fbffa912f0c1e1087f8444de4ae8df107864",
+        "policy_version": 1,
+        "scope": "all"
+      },
+      "run_id": "72da3e12e1dc4c27a43154794c0cd247",
+      "status": "ok"
+    },
+    {
+      "id": 124,
+      "at": "2026-11-12T12:16:56.851+00:00",
+      "actor": "agent",
+      "action": "model_plan",
+      "inputs": {
+        "goal": "Review this learner's assessment history for sustained patterns and changes.",
+        "minimum_terms": 3,
+        "observations": {
+          "assessment_percentages_in_date_order": {
+            "reading_comprehension": [
+              60.0,
+              56.0,
+              80.0,
+              76.0
+            ],
+            "spatial_reasoning": [
+              48.0,
+              44.0,
+              73.0,
+              69.0
+            ]
+          },
+          "findings": [
+            {
+              "kind": "insufficient",
+              "skill": "reading_comprehension"
+            },
+            {
+              "kind": "insufficient",
+              "skill": "spatial_reasoning"
+            }
+          ],
+          "scope": "all",
+          "term_count": 2,
+          "year_count": 2
+        },
+        "options": [
+          "validate"
+        ],
+        "previous_error": ""
+      },
+      "outputs": {
+        "decision": {
+          "action": "validate",
+          "reason": "Model selected this permitted action."
+        },
+        "usage": {
+          "api_cost_usd": 0,
+          "decoding": "greedy_model_logits_with_finite_action_json_grammar",
+          "execution": "local_open_weights",
+          "input_tokens": 296,
+          "latency_ms": 1449,
+          "model": "Qwen/Qwen2.5-0.5B-Instruct",
+          "output_tokens": 6,
+          "revision": "7ae557604adf67be50417f59c2c2f167def9a775"
+        }
+      },
+      "run_id": "72da3e12e1dc4c27a43154794c0cd247",
+      "status": "ok"
+    },
+    {
+      "id": 125,
+      "at": "2026-11-12T12:16:56.853+00:00",
+      "actor": "agent",
+      "action": "validate_learner_profile.request",
+      "inputs": {
+        "draft": {
+          "caveats": [
+            "These observations describe the supplied assessments and their recorded skill tags.",
+            "Different assessment difficulty, missing records and changes in teaching may affect comparisons.",
+            "Teachers determine appropriate support through discussion with the learner and guardian."
+          ],
+          "context_ids": [],
+          "evidence_revision": 1,
+          "excluded_ids": [],
+          "findings": [
+            {
+              "evidence_ids": [
+                "L003-rea-2025-3-0",
+                "L003-rea-2025-3-1",
+                "L003-rea-2026-1-0",
+                "L003-rea-2026-1-1"
+              ],
+              "kind": "insufficient",
+              "skill": "reading_comprehension",
+              "statement": "Only 2 terms of reliable reading comprehension assessments are available. A sustained pattern is not established.",
+              "trend": [
+                {
+                  "percent": 58.0,
+                  "term": 3,
+                  "year": 2025
+                },
+                {
+                  "percent": 78.0,
+                  "term": 1,
+                  "year": 2026
+                }
+              ]
+            },
+            {
+              "evidence_ids": [
+                "L003-spa-2025-3-0",
+                "L003-spa-2025-3-1",
+                "L003-spa-2026-1-0",
+                "L003-spa-2026-1-1"
+              ],
+              "kind": "insufficient",
+              "skill": "spatial_reasoning",
+              "statement": "Only 2 terms of reliable spatial reasoning assessments are available. A sustained pattern is not established.",
+              "trend": [
+                {
+                  "percent": 46.0,
+                  "term": 3,
+                  "year": 2025
+                },
+                {
+                  "percent": 71.0,
+                  "term": 1,
+                  "year": 2026
+                }
+              ]
+            }
+          ],
+          "learner_id": "L003",
+          "lens": "consistency",
+          "policy_hash": "9a379178b5020d50df9bee003713fbffa912f0c1e1087f8444de4ae8df107864",
+          "policy_version": 1,
+          "scope": "all"
+        },
+        "learner_id": "L003"
+      },
+      "outputs": {
+        "status": "started"
+      },
+      "run_id": "72da3e12e1dc4c27a43154794c0cd247",
+      "status": "ok"
+    },
+    {
+      "id": 126,
+      "at": "2026-11-12T12:16:56.855+00:00",
+      "actor": "agent",
+      "action": "validate_learner_profile",
+      "inputs": {
+        "draft": {
+          "caveats": [
+            "These observations describe the supplied assessments and their recorded skill tags.",
+            "Different assessment difficulty, missing records and changes in teaching may affect comparisons.",
+            "Teachers determine appropriate support through discussion with the learner and guardian."
+          ],
+          "context_ids": [],
+          "evidence_revision": 1,
+          "excluded_ids": [],
+          "findings": [
+            {
+              "evidence_ids": [
+                "L003-rea-2025-3-0",
+                "L003-rea-2025-3-1",
+                "L003-rea-2026-1-0",
+                "L003-rea-2026-1-1"
+              ],
+              "kind": "insufficient",
+              "skill": "reading_comprehension",
+              "statement": "Only 2 terms of reliable reading comprehension assessments are available. A sustained pattern is not established.",
+              "trend": [
+                {
+                  "percent": 58.0,
+                  "term": 3,
+                  "year": 2025
+                },
+                {
+                  "percent": 78.0,
+                  "term": 1,
+                  "year": 2026
+                }
+              ]
+            },
+            {
+              "evidence_ids": [
+                "L003-spa-2025-3-0",
+                "L003-spa-2025-3-1",
+                "L003-spa-2026-1-0",
+                "L003-spa-2026-1-1"
+              ],
+              "kind": "insufficient",
+              "skill": "spatial_reasoning",
+              "statement": "Only 2 terms of reliable spatial reasoning assessments are available. A sustained pattern is not established.",
+              "trend": [
+                {
+                  "percent": 46.0,
+                  "term": 3,
+                  "year": 2025
+                },
+                {
+                  "percent": 71.0,
+                  "term": 1,
+                  "year": 2026
+                }
+              ]
+            }
+          ],
+          "learner_id": "L003",
+          "lens": "consistency",
+          "policy_hash": "9a379178b5020d50df9bee003713fbffa912f0c1e1087f8444de4ae8df107864",
+          "policy_version": 1,
+          "scope": "all"
+        },
+        "learner_id": "L003"
+      },
+      "outputs": {
+        "content_hash": "b567ae10f69498f4e7323255fce04020fb3c586699a273cc7f296aa12e9bea2b",
+        "errors": [],
+        "needs_trajectory": false,
+        "revision": 1,
+        "valid": true
+      },
+      "run_id": "72da3e12e1dc4c27a43154794c0cd247",
+      "status": "ok"
+    },
+    {
+      "id": 127,
+      "at": "2026-11-12T12:16:58.739+00:00",
+      "actor": "agent",
+      "action": "model_plan",
+      "inputs": {
+        "goal": "Review this learner's assessment history for sustained patterns and changes.",
+        "minimum_terms": 3,
+        "observations": {
+          "assessment_percentages_in_date_order": {
+            "reading_comprehension": [
+              60.0,
+              56.0,
+              80.0,
+              76.0
+            ],
+            "spatial_reasoning": [
+              48.0,
+              44.0,
+              73.0,
+              69.0
+            ]
+          },
+          "findings": [
+            {
+              "kind": "insufficient",
+              "skill": "reading_comprehension"
+            },
+            {
+              "kind": "insufficient",
+              "skill": "spatial_reasoning"
+            }
+          ],
+          "scope": "all",
+          "term_count": 2,
+          "validation": {
+            "content_hash": "b567ae10f69498f4e7323255fce04020fb3c586699a273cc7f296aa12e9bea2b",
+            "errors": [],
+            "needs_trajectory": false,
+            "revision": 1,
+            "valid": true
+          },
+          "year_count": 2
+        },
+        "options": [
+          "save"
+        ],
+        "previous_error": ""
+      },
+      "outputs": {
+        "decision": {
+          "action": "save",
+          "reason": "Model selected this permitted action."
+        },
+        "usage": {
+          "api_cost_usd": 0,
+          "decoding": "greedy_model_logits_with_finite_action_json_grammar",
+          "execution": "local_open_weights",
+          "input_tokens": 383,
+          "latency_ms": 1879,
+          "model": "Qwen/Qwen2.5-0.5B-Instruct",
+          "output_tokens": 6,
+          "revision": "7ae557604adf67be50417f59c2c2f167def9a775"
+        }
+      },
+      "run_id": "72da3e12e1dc4c27a43154794c0cd247",
+      "status": "ok"
+    },
+    {
+      "id": 128,
+      "at": "2026-11-12T12:16:58.741+00:00",
+      "actor": "agent",
+      "action": "save_profile_draft.request",
+      "inputs": {
+        "draft": {
+          "caveats": [
+            "These observations describe the supplied assessments and their recorded skill tags.",
+            "Different assessment difficulty, missing records and changes in teaching may affect comparisons.",
+            "Teachers determine appropriate support through discussion with the learner and guardian."
+          ],
+          "context_ids": [],
+          "evidence_revision": 1,
+          "excluded_ids": [],
+          "findings": [
+            {
+              "evidence_ids": [
+                "L003-rea-2025-3-0",
+                "L003-rea-2025-3-1",
+                "L003-rea-2026-1-0",
+                "L003-rea-2026-1-1"
+              ],
+              "kind": "insufficient",
+              "skill": "reading_comprehension",
+              "statement": "Only 2 terms of reliable reading comprehension assessments are available. A sustained pattern is not established.",
+              "trend": [
+                {
+                  "percent": 58.0,
+                  "term": 3,
+                  "year": 2025
+                },
+                {
+                  "percent": 78.0,
+                  "term": 1,
+                  "year": 2026
+                }
+              ]
+            },
+            {
+              "evidence_ids": [
+                "L003-spa-2025-3-0",
+                "L003-spa-2025-3-1",
+                "L003-spa-2026-1-0",
+                "L003-spa-2026-1-1"
+              ],
+              "kind": "insufficient",
+              "skill": "spatial_reasoning",
+              "statement": "Only 2 terms of reliable spatial reasoning assessments are available. A sustained pattern is not established.",
+              "trend": [
+                {
+                  "percent": 46.0,
+                  "term": 3,
+                  "year": 2025
+                },
+                {
+                  "percent": 71.0,
+                  "term": 1,
+                  "year": 2026
+                }
+              ]
+            }
+          ],
+          "learner_id": "L003",
+          "lens": "consistency",
+          "policy_hash": "9a379178b5020d50df9bee003713fbffa912f0c1e1087f8444de4ae8df107864",
+          "policy_version": 1,
+          "scope": "all"
+        },
+        "learner_id": "L003"
+      },
+      "outputs": {
+        "status": "started"
+      },
+      "run_id": "72da3e12e1dc4c27a43154794c0cd247",
+      "status": "ok"
+    },
+    {
+      "id": 129,
+      "at": "2026-11-12T12:16:58.744+00:00",
+      "actor": "agent",
+      "action": "save_profile_draft",
+      "inputs": {
+        "draft": {
+          "caveats": [
+            "These observations describe the supplied assessments and their recorded skill tags.",
+            "Different assessment difficulty, missing records and changes in teaching may affect comparisons.",
+            "Teachers determine appropriate support through discussion with the learner and guardian."
+          ],
+          "context_ids": [],
+          "evidence_revision": 1,
+          "excluded_ids": [],
+          "findings": [
+            {
+              "evidence_ids": [
+                "L003-rea-2025-3-0",
+                "L003-rea-2025-3-1",
+                "L003-rea-2026-1-0",
+                "L003-rea-2026-1-1"
+              ],
+              "kind": "insufficient",
+              "skill": "reading_comprehension",
+              "statement": "Only 2 terms of reliable reading comprehension assessments are available. A sustained pattern is not established.",
+              "trend": [
+                {
+                  "percent": 58.0,
+                  "term": 3,
+                  "year": 2025
+                },
+                {
+                  "percent": 78.0,
+                  "term": 1,
+                  "year": 2026
+                }
+              ]
+            },
+            {
+              "evidence_ids": [
+                "L003-spa-2025-3-0",
+                "L003-spa-2025-3-1",
+                "L003-spa-2026-1-0",
+                "L003-spa-2026-1-1"
+              ],
+              "kind": "insufficient",
+              "skill": "spatial_reasoning",
+              "statement": "Only 2 terms of reliable spatial reasoning assessments are available. A sustained pattern is not established.",
+              "trend": [
+                {
+                  "percent": 46.0,
+                  "term": 3,
+                  "year": 2025
+                },
+                {
+                  "percent": 71.0,
+                  "term": 1,
+                  "year": 2026
+                }
+              ]
+            }
+          ],
+          "learner_id": "L003",
+          "lens": "consistency",
+          "policy_hash": "9a379178b5020d50df9bee003713fbffa912f0c1e1087f8444de4ae8df107864",
+          "policy_version": 1,
+          "scope": "all"
+        },
+        "learner_id": "L003"
+      },
+      "outputs": {
+        "profile_id": "c584011251654657827a8667c68e95f1",
+        "reused": false,
+        "state": "pending_review"
+      },
+      "run_id": "72da3e12e1dc4c27a43154794c0cd247",
+      "status": "ok"
+    },
+    {
+      "id": 130,
+      "at": "2026-11-12T12:16:58.746+00:00",
+      "actor": "agent",
+      "action": "run_completed",
+      "inputs": {},
+      "outputs": {
+        "profile_id": "c584011251654657827a8667c68e95f1"
+      },
+      "run_id": "72da3e12e1dc4c27a43154794c0cd247",
+      "status": "ok"
+    }
+  ],
+  "profile": {
+    "id": "c584011251654657827a8667c68e95f1",
+    "learner_id": "L003",
+    "run_id": "72da3e12e1dc4c27a43154794c0cd247",
+    "evidence_revision": 1,
+    "content": {
+      "caveats": [
+        "These observations describe the supplied assessments and their recorded skill tags.",
+        "Different assessment difficulty, missing records and changes in teaching may affect comparisons.",
+        "Teachers determine appropriate support through discussion with the learner and guardian."
+      ],
+      "context_ids": [],
+      "evidence_revision": 1,
+      "excluded_ids": [],
+      "findings": [
+        {
+          "evidence_ids": [
+            "L003-rea-2025-3-0",
+            "L003-rea-2025-3-1",
+            "L003-rea-2026-1-0",
+            "L003-rea-2026-1-1"
+          ],
+          "kind": "insufficient",
+          "skill": "reading_comprehension",
+          "statement": "Only 2 terms of reliable reading comprehension assessments are available. A sustained pattern is not established.",
+          "trend": [
+            {
+              "percent": 58.0,
+              "term": 3,
+              "year": 2025
+            },
+            {
+              "percent": 78.0,
+              "term": 1,
+              "year": 2026
+            }
+          ]
+        },
+        {
+          "evidence_ids": [
+            "L003-spa-2025-3-0",
+            "L003-spa-2025-3-1",
+            "L003-spa-2026-1-0",
+            "L003-spa-2026-1-1"
+          ],
+          "kind": "insufficient",
+          "skill": "spatial_reasoning",
+          "statement": "Only 2 terms of reliable spatial reasoning assessments are available. A sustained pattern is not established.",
+          "trend": [
+            {
+              "percent": 46.0,
+              "term": 3,
+              "year": 2025
+            },
+            {
+              "percent": 71.0,
+              "term": 1,
+              "year": 2026
+            }
+          ]
+        }
+      ],
+      "learner_id": "L003",
+      "lens": "consistency",
+      "policy_hash": "9a379178b5020d50df9bee003713fbffa912f0c1e1087f8444de4ae8df107864",
+      "policy_version": 1,
+      "scope": "all"
+    },
+    "content_hash": "b567ae10f69498f4e7323255fce04020fb3c586699a273cc7f296aa12e9bea2b",
+    "state": "pending_review",
+    "created_at": "2026-11-12T12:16:58.744+00:00",
+    "approved_by": null,
+    "approved_at": null,
+    "review_note": null,
+    "released_by": null,
+    "released_at": null
+  }
+}

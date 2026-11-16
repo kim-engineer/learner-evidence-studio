@@ -1,0 +1,12 @@
+{
+  "name": "learner-evidence-studio",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Third-party MCP runtime for the original Learner Evidence Studio application",
+  "dependencies": {
+    "@modelcontextprotocol/server-filesystem": "2.3.0"
+  },
+  "devDependencies": {
+    "jsdom": "26.1.0"
+  }
+}

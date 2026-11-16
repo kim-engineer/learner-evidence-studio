@@ -1,0 +1,2477 @@
+{
+  "run": {
+    "id": "1a8d0b5f508b46b0849c5938641be230",
+    "learner_id": "L004",
+    "teacher_id": "demo.teacher",
+    "status": "completed",
+    "provider": "local",
+    "model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "started_at": "2026-11-12T12:16:58.843+00:00",
+    "finished_at": "2026-11-12T12:17:12.699+00:00",
+    "error": null,
+    "profile_id": "2b867080661e455983982b5a0f4d01d8",
+    "input_tokens": 2571,
+    "output_tokens": 49,
+    "model_calls": 7
+  },
+  "events": [
+    {
+      "id": 131,
+      "at": "2026-11-12T12:16:58.843+00:00",
+      "actor": "demo.teacher",
+      "action": "request_profile_review",
+      "inputs": {
+        "learner_id": "L004"
+      },
+      "outputs": {
+        "provider": "local",
+        "run_id": "1a8d0b5f508b46b0849c5938641be230"
+      },
+      "run_id": "1a8d0b5f508b46b0849c5938641be230",
+      "status": "ok"
+    },
+    {
+      "id": 132,
+      "at": "2026-11-12T12:16:59.532+00:00",
+      "actor": "agent",
+      "action": "mcp_discover",
+      "inputs": {
+        "server": "learner"
+      },
+      "outputs": {
+        "tools": [
+          "get_learner_evidence",
+          "assess_longitudinal_patterns",
+          "validate_learner_profile",
+          "save_profile_draft"
+        ]
+      },
+      "run_id": "1a8d0b5f508b46b0849c5938641be230",
+      "status": "ok"
+    },
+    {
+      "id": 133,
+      "at": "2026-11-12T12:16:59.544+00:00",
+      "actor": "agent",
+      "action": "mcp_discover",
+      "inputs": {
+        "server": "reference"
+      },
+      "outputs": {
+        "tools": [
+          "read_file",
+          "read_text_file",
+          "read_media_file",
+          "read_multiple_files",
+          "list_directory",
+          "list_directory_with_sizes",
+          "directory_tree",
+          "search_files",
+          "get_file_info",
+          "list_allowed_directories"
+        ]
+      },
+      "run_id": "1a8d0b5f508b46b0849c5938641be230",
+      "status": "ok"
+    },
+    {
+      "id": 134,
+      "at": "2026-11-12T12:16:59.545+00:00",
+      "actor": "agent",
+      "action": "reference.read_text_file.request",
+      "inputs": {
+        "path": "/workspace/scratch/dde62a0a0583/learner-evidence-studio/reference/policy.json"
+      },
+      "outputs": {
+        "status": "started"
+      },
+      "run_id": "1a8d0b5f508b46b0849c5938641be230",
+      "status": "ok"
+    },
+    {
+      "id": 135,
+      "at": "2026-11-12T12:16:59.555+00:00",
+      "actor": "agent",
+      "action": "reference.read_text_file",
+      "inputs": {
+        "path": "/workspace/scratch/dde62a0a0583/learner-evidence-studio/reference/policy.json"
+      },
+      "outputs": {
+        "improvement_points": 15,
+        "minimum_assessments": 3,
+        "minimum_terms": 3,
+        "name": "Demo Primary School longitudinal evidence rubric",
+        "review": "Every finding needs its source assessment IDs. A teacher reviews the evidence before approval. Guardian release requires a recorded teacher-guardian conversation.",
+        "scope": "Compare the same learner and skill across dated terms. Describe demonstrated performance on these assessments. Never assign an ability identity, diagnosis, career or subject track. Attendance and notes provide context, not causal explanations.",
+        "strength_floor": 70,
+        "support_ceiling": 45,
+        "synthetic": true,
+        "version": 1
+      },
+      "run_id": "1a8d0b5f508b46b0849c5938641be230",
+      "status": "ok"
+    },
+    {
+      "id": 136,
+      "at": "2026-11-12T12:17:00.687+00:00",
+      "actor": "agent",
+      "action": "model_plan",
+      "inputs": {
+        "goal": "Review this learner's assessment history for sustained patterns and changes.",
+        "minimum_terms": 3,
+        "observations": {},
+        "options": [
+          "get_recent",
+          "get_all"
+        ],
+        "previous_error": ""
+      },
+      "outputs": {
+        "decision": {
+          "action": "get_recent",
+          "reason": "Model selected this permitted action."
+        },
+        "usage": {
+          "api_cost_usd": 0,
+          "decoding": "greedy_model_logits_with_finite_action_json_grammar",
+          "execution": "local_open_weights",
+          "input_tokens": 177,
+          "latency_ms": 1124,
+          "model": "Qwen/Qwen2.5-0.5B-Instruct",
+          "output_tokens": 7,
+          "revision": "7ae557604adf67be50417f59c2c2f167def9a775"
+        }
+      },
+      "run_id": "1a8d0b5f508b46b0849c5938641be230",
+      "status": "ok"
+    },
+    {
+      "id": 137,
+      "at": "2026-11-12T12:17:00.689+00:00",
+      "actor": "agent",
+      "action": "get_learner_evidence.request",
+      "inputs": {
+        "learner_id": "L004",
+        "scope": "recent"
+      },
+      "outputs": {
+        "status": "started"
+      },
+      "run_id": "1a8d0b5f508b46b0849c5938641be230",
+      "status": "ok"
+    },
+    {
+      "id": 138,
+      "at": "2026-11-12T12:17:00.691+00:00",
+      "actor": "agent",
+      "action": "get_learner_evidence",
+      "inputs": {
+        "learner_id": "L004",
+        "scope": "recent"
+      },
+      "outputs": {
+        "evidence": [
+          {
+            "academic_year": 2025,
+            "id": "L004-rea-2025-3-0",
+            "kind": "assessment",
+            "learner_id": "L004",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2025-09-10",
+            "recorded_at": "2025-09-28",
+            "reliable": 1,
+            "score": 61.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://L004/2025/T3/reading_comprehension/0",
+            "term": 3,
+            "title": "Reading Comprehension task 1"
+          },
+          {
+            "academic_year": 2025,
+            "id": "L004-spa-2025-3-0",
+            "kind": "assessment",
+            "learner_id": "L004",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2025-09-10",
+            "recorded_at": "2025-09-28",
+            "reliable": 1,
+            "score": 39.0,
+            "skill": "spatial_reasoning",
+            "source": "synthetic://L004/2025/T3/spatial_reasoning/0",
+            "term": 3,
+            "title": "Spatial Reasoning task 1"
+          },
+          {
+            "academic_year": 2025,
+            "id": "L004-rea-2025-3-1",
+            "kind": "assessment",
+            "learner_id": "L004",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2025-09-18",
+            "recorded_at": "2025-09-28",
+            "reliable": 1,
+            "score": 57.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://L004/2025/T3/reading_comprehension/1",
+            "term": 3,
+            "title": "Reading Comprehension task 2"
+          },
+          {
+            "academic_year": 2025,
+            "id": "L004-spa-2025-3-1",
+            "kind": "assessment",
+            "learner_id": "L004",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2025-09-18",
+            "recorded_at": "2025-09-28",
+            "reliable": 1,
+            "score": 35.0,
+            "skill": "spatial_reasoning",
+            "source": "synthetic://L004/2025/T3/spatial_reasoning/1",
+            "term": 3,
+            "title": "Spatial Reasoning task 2"
+          },
+          {
+            "academic_year": 2026,
+            "id": "L004-rea-2026-1-0",
+            "kind": "assessment",
+            "learner_id": "L004",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2026-03-10",
+            "recorded_at": "2026-03-28",
+            "reliable": 1,
+            "score": 65.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://L004/2026/T1/reading_comprehension/0",
+            "term": 1,
+            "title": "Reading Comprehension task 1"
+          },
+          {
+            "academic_year": 2026,
+            "id": "L004-spa-2026-1-0",
+            "kind": "assessment",
+            "learner_id": "L004",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2026-03-10",
+            "recorded_at": "2026-03-28",
+            "reliable": 1,
+            "score": 41.0,
+            "skill": "spatial_reasoning",
+            "source": "synthetic://L004/2026/T1/spatial_reasoning/0",
+            "term": 1,
+            "title": "Spatial Reasoning task 1"
+          },
+          {
+            "academic_year": 2026,
+            "id": "L004-rea-2026-1-1",
+            "kind": "assessment",
+            "learner_id": "L004",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2026-03-18",
+            "recorded_at": "2026-03-28",
+            "reliable": 1,
+            "score": 61.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://L004/2026/T1/reading_comprehension/1",
+            "term": 1,
+            "title": "Reading Comprehension task 2"
+          },
+          {
+            "academic_year": 2026,
+            "id": "L004-spa-2026-1-1",
+            "kind": "assessment",
+            "learner_id": "L004",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2026-03-18",
+            "recorded_at": "2026-03-28",
+            "reliable": 1,
+            "score": 37.0,
+            "skill": "spatial_reasoning",
+            "source": "synthetic://L004/2026/T1/spatial_reasoning/1",
+            "term": 1,
+            "title": "Spatial Reasoning task 2"
+          }
+        ],
+        "learner_id": "L004",
+        "revision": 1,
+        "scope": "recent",
+        "term_count": 2,
+        "year_count": 2
+      },
+      "run_id": "1a8d0b5f508b46b0849c5938641be230",
+      "status": "ok"
+    },
+    {
+      "id": 139,
+      "at": "2026-11-12T12:17:02.117+00:00",
+      "actor": "agent",
+      "action": "model_plan",
+      "inputs": {
+        "goal": "Review this learner's assessment history for sustained patterns and changes.",
+        "minimum_terms": 3,
+        "observations": {
+          "assessment_percentages_in_date_order": {
+            "reading_comprehension": [
+              61.0,
+              57.0,
+              65.0,
+              61.0
+            ],
+            "spatial_reasoning": [
+              39.0,
+              35.0,
+              41.0,
+              37.0
+            ]
+          },
+          "scope": "recent",
+          "term_count": 2,
+          "year_count": 2
+        },
+        "options": [
+          "get_all",
+          "assess_trajectory",
+          "assess_consistency"
+        ],
+        "previous_error": ""
+      },
+      "outputs": {
+        "decision": {
+          "action": "get_all",
+          "reason": "Model selected this permitted action."
+        },
+        "usage": {
+          "api_cost_usd": 0,
+          "decoding": "greedy_model_logits_with_finite_action_json_grammar",
+          "execution": "local_open_weights",
+          "input_tokens": 272,
+          "latency_ms": 1421,
+          "model": "Qwen/Qwen2.5-0.5B-Instruct",
+          "output_tokens": 7,
+          "revision": "7ae557604adf67be50417f59c2c2f167def9a775"
+        }
+      },
+      "run_id": "1a8d0b5f508b46b0849c5938641be230",
+      "status": "ok"
+    },
+    {
+      "id": 140,
+      "at": "2026-11-12T12:17:02.119+00:00",
+      "actor": "agent",
+      "action": "get_learner_evidence.request",
+      "inputs": {
+        "learner_id": "L004",
+        "scope": "all"
+      },
+      "outputs": {
+        "status": "started"
+      },
+      "run_id": "1a8d0b5f508b46b0849c5938641be230",
+      "status": "ok"
+    },
+    {
+      "id": 141,
+      "at": "2026-11-12T12:17:02.122+00:00",
+      "actor": "agent",
+      "action": "get_learner_evidence",
+      "inputs": {
+        "learner_id": "L004",
+        "scope": "all"
+      },
+      "outputs": {
+        "evidence": [
+          {
+            "academic_year": 2024,
+            "id": "L004-rea-2024-2-0",
+            "kind": "assessment",
+            "learner_id": "L004",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2024-06-10",
+            "recorded_at": "2024-06-28",
+            "reliable": 1,
+            "score": 60.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://L004/2024/T2/reading_comprehension/0",
+            "term": 2,
+            "title": "Reading Comprehension task 1"
+          },
+          {
+            "academic_year": 2024,
+            "id": "L004-spa-2024-2-0",
+            "kind": "assessment",
+            "learner_id": "L004",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2024-06-10",
+            "recorded_at": "2024-06-28",
+            "reliable": 1,
+            "score": 90.0,
+            "skill": "spatial_reasoning",
+            "source": "synthetic://L004/2024/T2/spatial_reasoning/0",
+            "term": 2,
+            "title": "Spatial Reasoning task 1"
+          },
+          {
+            "academic_year": 2024,
+            "id": "L004-rea-2024-2-1",
+            "kind": "assessment",
+            "learner_id": "L004",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2024-06-18",
+            "recorded_at": "2024-06-28",
+            "reliable": 1,
+            "score": 56.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://L004/2024/T2/reading_comprehension/1",
+            "term": 2,
+            "title": "Reading Comprehension task 2"
+          },
+          {
+            "academic_year": 2024,
+            "id": "L004-spa-2024-2-1",
+            "kind": "assessment",
+            "learner_id": "L004",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2024-06-18",
+            "recorded_at": "2024-06-28",
+            "reliable": 1,
+            "score": 86.0,
+            "skill": "spatial_reasoning",
+            "source": "synthetic://L004/2024/T2/spatial_reasoning/1",
+            "term": 2,
+            "title": "Spatial Reasoning task 2"
+          },
+          {
+            "academic_year": 2024,
+            "id": "L004-rea-2024-3-0",
+            "kind": "assessment",
+            "learner_id": "L004",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2024-09-10",
+            "recorded_at": "2024-09-28",
+            "reliable": 1,
+            "score": 59.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://L004/2024/T3/reading_comprehension/0",
+            "term": 3,
+            "title": "Reading Comprehension task 1"
+          },
+          {
+            "academic_year": 2024,
+            "id": "L004-spa-2024-3-0",
+            "kind": "assessment",
+            "learner_id": "L004",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2024-09-10",
+            "recorded_at": "2024-09-28",
+            "reliable": 1,
+            "score": 89.0,
+            "skill": "spatial_reasoning",
+            "source": "synthetic://L004/2024/T3/spatial_reasoning/0",
+            "term": 3,
+            "title": "Spatial Reasoning task 1"
+          },
+          {
+            "academic_year": 2024,
+            "id": "L004-rea-2024-3-1",
+            "kind": "assessment",
+            "learner_id": "L004",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2024-09-18",
+            "recorded_at": "2024-09-28",
+            "reliable": 1,
+            "score": 55.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://L004/2024/T3/reading_comprehension/1",
+            "term": 3,
+            "title": "Reading Comprehension task 2"
+          },
+          {
+            "academic_year": 2024,
+            "id": "L004-spa-2024-3-1",
+            "kind": "assessment",
+            "learner_id": "L004",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2024-09-18",
+            "recorded_at": "2024-09-28",
+            "reliable": 1,
+            "score": 85.0,
+            "skill": "spatial_reasoning",
+            "source": "synthetic://L004/2024/T3/spatial_reasoning/1",
+            "term": 3,
+            "title": "Spatial Reasoning task 2"
+          },
+          {
+            "academic_year": 2025,
+            "id": "L004-rea-2025-1-0",
+            "kind": "assessment",
+            "learner_id": "L004",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2025-03-10",
+            "recorded_at": "2025-03-28",
+            "reliable": 1,
+            "score": 63.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://L004/2025/T1/reading_comprehension/0",
+            "term": 1,
+            "title": "Reading Comprehension task 1"
+          },
+          {
+            "academic_year": 2025,
+            "id": "L004-spa-2025-1-0",
+            "kind": "assessment",
+            "learner_id": "L004",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2025-03-10",
+            "recorded_at": "2025-03-28",
+            "reliable": 1,
+            "score": 40.0,
+            "skill": "spatial_reasoning",
+            "source": "synthetic://L004/2025/T1/spatial_reasoning/0",
+            "term": 1,
+            "title": "Spatial Reasoning task 1"
+          },
+          {
+            "academic_year": 2025,
+            "id": "L004-rea-2025-1-1",
+            "kind": "assessment",
+            "learner_id": "L004",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2025-03-18",
+            "recorded_at": "2025-03-28",
+            "reliable": 1,
+            "score": 59.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://L004/2025/T1/reading_comprehension/1",
+            "term": 1,
+            "title": "Reading Comprehension task 2"
+          },
+          {
+            "academic_year": 2025,
+            "id": "L004-spa-2025-1-1",
+            "kind": "assessment",
+            "learner_id": "L004",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2025-03-18",
+            "recorded_at": "2025-03-28",
+            "reliable": 1,
+            "score": 36.0,
+            "skill": "spatial_reasoning",
+            "source": "synthetic://L004/2025/T1/spatial_reasoning/1",
+            "term": 1,
+            "title": "Spatial Reasoning task 2"
+          },
+          {
+            "academic_year": 2025,
+            "id": "L004-rea-2025-2-0",
+            "kind": "assessment",
+            "learner_id": "L004",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2025-06-10",
+            "recorded_at": "2025-06-28",
+            "reliable": 1,
+            "score": 62.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://L004/2025/T2/reading_comprehension/0",
+            "term": 2,
+            "title": "Reading Comprehension task 1"
+          },
+          {
+            "academic_year": 2025,
+            "id": "L004-spa-2025-2-0",
+            "kind": "assessment",
+            "learner_id": "L004",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2025-06-10",
+            "recorded_at": "2025-06-28",
+            "reliable": 1,
+            "score": 42.0,
+            "skill": "spatial_reasoning",
+            "source": "synthetic://L004/2025/T2/spatial_reasoning/0",
+            "term": 2,
+            "title": "Spatial Reasoning task 1"
+          },
+          {
+            "academic_year": 2025,
+            "id": "L004-rea-2025-2-1",
+            "kind": "assessment",
+            "learner_id": "L004",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2025-06-18",
+            "recorded_at": "2025-06-28",
+            "reliable": 1,
+            "score": 58.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://L004/2025/T2/reading_comprehension/1",
+            "term": 2,
+            "title": "Reading Comprehension task 2"
+          },
+          {
+            "academic_year": 2025,
+            "id": "L004-spa-2025-2-1",
+            "kind": "assessment",
+            "learner_id": "L004",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2025-06-18",
+            "recorded_at": "2025-06-28",
+            "reliable": 1,
+            "score": 38.0,
+            "skill": "spatial_reasoning",
+            "source": "synthetic://L004/2025/T2/spatial_reasoning/1",
+            "term": 2,
+            "title": "Spatial Reasoning task 2"
+          },
+          {
+            "academic_year": 2025,
+            "id": "L004-rea-2025-3-0",
+            "kind": "assessment",
+            "learner_id": "L004",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2025-09-10",
+            "recorded_at": "2025-09-28",
+            "reliable": 1,
+            "score": 61.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://L004/2025/T3/reading_comprehension/0",
+            "term": 3,
+            "title": "Reading Comprehension task 1"
+          },
+          {
+            "academic_year": 2025,
+            "id": "L004-spa-2025-3-0",
+            "kind": "assessment",
+            "learner_id": "L004",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2025-09-10",
+            "recorded_at": "2025-09-28",
+            "reliable": 1,
+            "score": 39.0,
+            "skill": "spatial_reasoning",
+            "source": "synthetic://L004/2025/T3/spatial_reasoning/0",
+            "term": 3,
+            "title": "Spatial Reasoning task 1"
+          },
+          {
+            "academic_year": 2025,
+            "id": "L004-rea-2025-3-1",
+            "kind": "assessment",
+            "learner_id": "L004",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2025-09-18",
+            "recorded_at": "2025-09-28",
+            "reliable": 1,
+            "score": 57.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://L004/2025/T3/reading_comprehension/1",
+            "term": 3,
+            "title": "Reading Comprehension task 2"
+          },
+          {
+            "academic_year": 2025,
+            "id": "L004-spa-2025-3-1",
+            "kind": "assessment",
+            "learner_id": "L004",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2025-09-18",
+            "recorded_at": "2025-09-28",
+            "reliable": 1,
+            "score": 35.0,
+            "skill": "spatial_reasoning",
+            "source": "synthetic://L004/2025/T3/spatial_reasoning/1",
+            "term": 3,
+            "title": "Spatial Reasoning task 2"
+          },
+          {
+            "academic_year": 2026,
+            "id": "L004-rea-2026-1-0",
+            "kind": "assessment",
+            "learner_id": "L004",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2026-03-10",
+            "recorded_at": "2026-03-28",
+            "reliable": 1,
+            "score": 65.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://L004/2026/T1/reading_comprehension/0",
+            "term": 1,
+            "title": "Reading Comprehension task 1"
+          },
+          {
+            "academic_year": 2026,
+            "id": "L004-spa-2026-1-0",
+            "kind": "assessment",
+            "learner_id": "L004",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2026-03-10",
+            "recorded_at": "2026-03-28",
+            "reliable": 1,
+            "score": 41.0,
+            "skill": "spatial_reasoning",
+            "source": "synthetic://L004/2026/T1/spatial_reasoning/0",
+            "term": 1,
+            "title": "Spatial Reasoning task 1"
+          },
+          {
+            "academic_year": 2026,
+            "id": "L004-rea-2026-1-1",
+            "kind": "assessment",
+            "learner_id": "L004",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2026-03-18",
+            "recorded_at": "2026-03-28",
+            "reliable": 1,
+            "score": 61.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://L004/2026/T1/reading_comprehension/1",
+            "term": 1,
+            "title": "Reading Comprehension task 2"
+          },
+          {
+            "academic_year": 2026,
+            "id": "L004-spa-2026-1-1",
+            "kind": "assessment",
+            "learner_id": "L004",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2026-03-18",
+            "recorded_at": "2026-03-28",
+            "reliable": 1,
+            "score": 37.0,
+            "skill": "spatial_reasoning",
+            "source": "synthetic://L004/2026/T1/spatial_reasoning/1",
+            "term": 1,
+            "title": "Spatial Reasoning task 2"
+          }
+        ],
+        "learner_id": "L004",
+        "revision": 1,
+        "scope": "all",
+        "term_count": 6,
+        "year_count": 3
+      },
+      "run_id": "1a8d0b5f508b46b0849c5938641be230",
+      "status": "ok"
+    },
+    {
+      "id": 142,
+      "at": "2026-11-12T12:17:04.044+00:00",
+      "actor": "agent",
+      "action": "model_plan",
+      "inputs": {
+        "goal": "Review this learner's assessment history for sustained patterns and changes.",
+        "minimum_terms": 3,
+        "observations": {
+          "assessment_percentages_in_date_order": {
+            "reading_comprehension": [
+              60.0,
+              56.0,
+              59.0,
+              55.0,
+              63.0,
+              59.0,
+              62.0,
+              58.0,
+              61.0,
+              57.0,
+              65.0,
+              61.0
+            ],
+            "spatial_reasoning": [
+              90.0,
+              86.0,
+              89.0,
+              85.0,
+              40.0,
+              36.0,
+              42.0,
+              38.0,
+              39.0,
+              35.0,
+              41.0,
+              37.0
+            ]
+          },
+          "scope": "all",
+          "term_count": 6,
+          "year_count": 3
+        },
+        "options": [
+          "assess_trajectory",
+          "assess_consistency"
+        ],
+        "previous_error": ""
+      },
+      "outputs": {
+        "decision": {
+          "action": "assess_consistency",
+          "reason": "Model selected this permitted action."
+        },
+        "usage": {
+          "api_cost_usd": 0,
+          "decoding": "greedy_model_logits_with_finite_action_json_grammar",
+          "execution": "local_open_weights",
+          "input_tokens": 364,
+          "latency_ms": 1914,
+          "model": "Qwen/Qwen2.5-0.5B-Instruct",
+          "output_tokens": 9,
+          "revision": "7ae557604adf67be50417f59c2c2f167def9a775"
+        }
+      },
+      "run_id": "1a8d0b5f508b46b0849c5938641be230",
+      "status": "ok"
+    },
+    {
+      "id": 143,
+      "at": "2026-11-12T12:17:04.046+00:00",
+      "actor": "agent",
+      "action": "assess_longitudinal_patterns.request",
+      "inputs": {
+        "learner_id": "L004",
+        "lens": "consistency",
+        "policy": {
+          "improvement_points": 15,
+          "minimum_assessments": 3,
+          "minimum_terms": 3,
+          "name": "Demo Primary School longitudinal evidence rubric",
+          "review": "Every finding needs its source assessment IDs. A teacher reviews the evidence before approval. Guardian release requires a recorded teacher-guardian conversation.",
+          "scope": "Compare the same learner and skill across dated terms. Describe demonstrated performance on these assessments. Never assign an ability identity, diagnosis, career or subject track. Attendance and notes provide context, not causal explanations.",
+          "strength_floor": 70,
+          "support_ceiling": 45,
+          "synthetic": true,
+          "version": 1
+        },
+        "scope": "all"
+      },
+      "outputs": {
+        "status": "started"
+      },
+      "run_id": "1a8d0b5f508b46b0849c5938641be230",
+      "status": "ok"
+    },
+    {
+      "id": 144,
+      "at": "2026-11-12T12:17:04.057+00:00",
+      "actor": "agent",
+      "action": "assess_longitudinal_patterns",
+      "inputs": {
+        "learner_id": "L004",
+        "lens": "consistency",
+        "policy": {
+          "improvement_points": 15,
+          "minimum_assessments": 3,
+          "minimum_terms": 3,
+          "name": "Demo Primary School longitudinal evidence rubric",
+          "review": "Every finding needs its source assessment IDs. A teacher reviews the evidence before approval. Guardian release requires a recorded teacher-guardian conversation.",
+          "scope": "Compare the same learner and skill across dated terms. Describe demonstrated performance on these assessments. Never assign an ability identity, diagnosis, career or subject track. Attendance and notes provide context, not causal explanations.",
+          "strength_floor": 70,
+          "support_ceiling": 45,
+          "synthetic": true,
+          "version": 1
+        },
+        "scope": "all"
+      },
+      "outputs": {
+        "caveats": [
+          "These observations describe the supplied assessments and their recorded skill tags.",
+          "Different assessment difficulty, missing records and changes in teaching may affect comparisons.",
+          "Teachers determine appropriate support through discussion with the learner and guardian."
+        ],
+        "context_ids": [],
+        "evidence_revision": 1,
+        "excluded_ids": [],
+        "findings": [
+          {
+            "evidence_ids": [
+              "L004-rea-2024-2-0",
+              "L004-rea-2024-2-1",
+              "L004-rea-2024-3-0",
+              "L004-rea-2024-3-1",
+              "L004-rea-2025-1-0",
+              "L004-rea-2025-1-1",
+              "L004-rea-2025-2-0",
+              "L004-rea-2025-2-1",
+              "L004-rea-2025-3-0",
+              "L004-rea-2025-3-1",
+              "L004-rea-2026-1-0",
+              "L004-rea-2026-1-1"
+            ],
+            "kind": "mixed",
+            "skill": "reading_comprehension",
+            "statement": "Recorded reading comprehension assessment averages were between 57% and 63% across 6 terms. They do not meet the rubric's sustained high or low thresholds.",
+            "trend": [
+              {
+                "percent": 58.0,
+                "term": 2,
+                "year": 2024
+              },
+              {
+                "percent": 57.0,
+                "term": 3,
+                "year": 2024
+              },
+              {
+                "percent": 61.0,
+                "term": 1,
+                "year": 2025
+              },
+              {
+                "percent": 60.0,
+                "term": 2,
+                "year": 2025
+              },
+              {
+                "percent": 59.0,
+                "term": 3,
+                "year": 2025
+              },
+              {
+                "percent": 63.0,
+                "term": 1,
+                "year": 2026
+              }
+            ]
+          },
+          {
+            "evidence_ids": [
+              "L004-spa-2024-2-0",
+              "L004-spa-2024-2-1",
+              "L004-spa-2024-3-0",
+              "L004-spa-2024-3-1",
+              "L004-spa-2025-1-0",
+              "L004-spa-2025-1-1",
+              "L004-spa-2025-2-0",
+              "L004-spa-2025-2-1",
+              "L004-spa-2025-3-0",
+              "L004-spa-2025-3-1",
+              "L004-spa-2026-1-0",
+              "L004-spa-2026-1-1"
+            ],
+            "kind": "mixed",
+            "skill": "spatial_reasoning",
+            "statement": "Recorded spatial reasoning assessment averages were between 37% and 88% across 6 terms. They do not meet the rubric's sustained high or low thresholds.",
+            "trend": [
+              {
+                "percent": 88.0,
+                "term": 2,
+                "year": 2024
+              },
+              {
+                "percent": 87.0,
+                "term": 3,
+                "year": 2024
+              },
+              {
+                "percent": 38.0,
+                "term": 1,
+                "year": 2025
+              },
+              {
+                "percent": 40.0,
+                "term": 2,
+                "year": 2025
+              },
+              {
+                "percent": 37.0,
+                "term": 3,
+                "year": 2025
+              },
+              {
+                "percent": 39.0,
+                "term": 1,
+                "year": 2026
+              }
+            ]
+          }
+        ],
+        "learner_id": "L004",
+        "lens": "consistency",
+        "policy_hash": "9a379178b5020d50df9bee003713fbffa912f0c1e1087f8444de4ae8df107864",
+        "policy_version": 1,
+        "scope": "all"
+      },
+      "run_id": "1a8d0b5f508b46b0849c5938641be230",
+      "status": "ok"
+    },
+    {
+      "id": 145,
+      "at": "2026-11-12T12:17:05.960+00:00",
+      "actor": "agent",
+      "action": "model_plan",
+      "inputs": {
+        "goal": "Review this learner's assessment history for sustained patterns and changes.",
+        "minimum_terms": 3,
+        "observations": {
+          "assessment_percentages_in_date_order": {
+            "reading_comprehension": [
+              60.0,
+              56.0,
+              59.0,
+              55.0,
+              63.0,
+              59.0,
+              62.0,
+              58.0,
+              61.0,
+              57.0,
+              65.0,
+              61.0
+            ],
+            "spatial_reasoning": [
+              90.0,
+              86.0,
+              89.0,
+              85.0,
+              40.0,
+              36.0,
+              42.0,
+              38.0,
+              39.0,
+              35.0,
+              41.0,
+              37.0
+            ]
+          },
+          "findings": [
+            {
+              "kind": "mixed",
+              "skill": "reading_comprehension"
+            },
+            {
+              "kind": "mixed",
+              "skill": "spatial_reasoning"
+            }
+          ],
+          "scope": "all",
+          "term_count": 6,
+          "year_count": 3
+        },
+        "options": [
+          "validate"
+        ],
+        "previous_error": ""
+      },
+      "outputs": {
+        "decision": {
+          "action": "validate",
+          "reason": "Model selected this permitted action."
+        },
+        "usage": {
+          "api_cost_usd": 0,
+          "decoding": "greedy_model_logits_with_finite_action_json_grammar",
+          "execution": "local_open_weights",
+          "input_tokens": 390,
+          "latency_ms": 1889,
+          "model": "Qwen/Qwen2.5-0.5B-Instruct",
+          "output_tokens": 6,
+          "revision": "7ae557604adf67be50417f59c2c2f167def9a775"
+        }
+      },
+      "run_id": "1a8d0b5f508b46b0849c5938641be230",
+      "status": "ok"
+    },
+    {
+      "id": 146,
+      "at": "2026-11-12T12:17:05.964+00:00",
+      "actor": "agent",
+      "action": "validate_learner_profile.request",
+      "inputs": {
+        "draft": {
+          "caveats": [
+            "These observations describe the supplied assessments and their recorded skill tags.",
+            "Different assessment difficulty, missing records and changes in teaching may affect comparisons.",
+            "Teachers determine appropriate support through discussion with the learner and guardian."
+          ],
+          "context_ids": [],
+          "evidence_revision": 1,
+          "excluded_ids": [],
+          "findings": [
+            {
+              "evidence_ids": [
+                "L004-rea-2024-2-0",
+                "L004-rea-2024-2-1",
+                "L004-rea-2024-3-0",
+                "L004-rea-2024-3-1",
+                "L004-rea-2025-1-0",
+                "L004-rea-2025-1-1",
+                "L004-rea-2025-2-0",
+                "L004-rea-2025-2-1",
+                "L004-rea-2025-3-0",
+                "L004-rea-2025-3-1",
+                "L004-rea-2026-1-0",
+                "L004-rea-2026-1-1"
+              ],
+              "kind": "mixed",
+              "skill": "reading_comprehension",
+              "statement": "Recorded reading comprehension assessment averages were between 57% and 63% across 6 terms. They do not meet the rubric's sustained high or low thresholds.",
+              "trend": [
+                {
+                  "percent": 58.0,
+                  "term": 2,
+                  "year": 2024
+                },
+                {
+                  "percent": 57.0,
+                  "term": 3,
+                  "year": 2024
+                },
+                {
+                  "percent": 61.0,
+                  "term": 1,
+                  "year": 2025
+                },
+                {
+                  "percent": 60.0,
+                  "term": 2,
+                  "year": 2025
+                },
+                {
+                  "percent": 59.0,
+                  "term": 3,
+                  "year": 2025
+                },
+                {
+                  "percent": 63.0,
+                  "term": 1,
+                  "year": 2026
+                }
+              ]
+            },
+            {
+              "evidence_ids": [
+                "L004-spa-2024-2-0",
+                "L004-spa-2024-2-1",
+                "L004-spa-2024-3-0",
+                "L004-spa-2024-3-1",
+                "L004-spa-2025-1-0",
+                "L004-spa-2025-1-1",
+                "L004-spa-2025-2-0",
+                "L004-spa-2025-2-1",
+                "L004-spa-2025-3-0",
+                "L004-spa-2025-3-1",
+                "L004-spa-2026-1-0",
+                "L004-spa-2026-1-1"
+              ],
+              "kind": "mixed",
+              "skill": "spatial_reasoning",
+              "statement": "Recorded spatial reasoning assessment averages were between 37% and 88% across 6 terms. They do not meet the rubric's sustained high or low thresholds.",
+              "trend": [
+                {
+                  "percent": 88.0,
+                  "term": 2,
+                  "year": 2024
+                },
+                {
+                  "percent": 87.0,
+                  "term": 3,
+                  "year": 2024
+                },
+                {
+                  "percent": 38.0,
+                  "term": 1,
+                  "year": 2025
+                },
+                {
+                  "percent": 40.0,
+                  "term": 2,
+                  "year": 2025
+                },
+                {
+                  "percent": 37.0,
+                  "term": 3,
+                  "year": 2025
+                },
+                {
+                  "percent": 39.0,
+                  "term": 1,
+                  "year": 2026
+                }
+              ]
+            }
+          ],
+          "learner_id": "L004",
+          "lens": "consistency",
+          "policy_hash": "9a379178b5020d50df9bee003713fbffa912f0c1e1087f8444de4ae8df107864",
+          "policy_version": 1,
+          "scope": "all"
+        },
+        "learner_id": "L004"
+      },
+      "outputs": {
+        "status": "started"
+      },
+      "run_id": "1a8d0b5f508b46b0849c5938641be230",
+      "status": "ok"
+    },
+    {
+      "id": 147,
+      "at": "2026-11-12T12:17:05.967+00:00",
+      "actor": "agent",
+      "action": "validate_learner_profile",
+      "inputs": {
+        "draft": {
+          "caveats": [
+            "These observations describe the supplied assessments and their recorded skill tags.",
+            "Different assessment difficulty, missing records and changes in teaching may affect comparisons.",
+            "Teachers determine appropriate support through discussion with the learner and guardian."
+          ],
+          "context_ids": [],
+          "evidence_revision": 1,
+          "excluded_ids": [],
+          "findings": [
+            {
+              "evidence_ids": [
+                "L004-rea-2024-2-0",
+                "L004-rea-2024-2-1",
+                "L004-rea-2024-3-0",
+                "L004-rea-2024-3-1",
+                "L004-rea-2025-1-0",
+                "L004-rea-2025-1-1",
+                "L004-rea-2025-2-0",
+                "L004-rea-2025-2-1",
+                "L004-rea-2025-3-0",
+                "L004-rea-2025-3-1",
+                "L004-rea-2026-1-0",
+                "L004-rea-2026-1-1"
+              ],
+              "kind": "mixed",
+              "skill": "reading_comprehension",
+              "statement": "Recorded reading comprehension assessment averages were between 57% and 63% across 6 terms. They do not meet the rubric's sustained high or low thresholds.",
+              "trend": [
+                {
+                  "percent": 58.0,
+                  "term": 2,
+                  "year": 2024
+                },
+                {
+                  "percent": 57.0,
+                  "term": 3,
+                  "year": 2024
+                },
+                {
+                  "percent": 61.0,
+                  "term": 1,
+                  "year": 2025
+                },
+                {
+                  "percent": 60.0,
+                  "term": 2,
+                  "year": 2025
+                },
+                {
+                  "percent": 59.0,
+                  "term": 3,
+                  "year": 2025
+                },
+                {
+                  "percent": 63.0,
+                  "term": 1,
+                  "year": 2026
+                }
+              ]
+            },
+            {
+              "evidence_ids": [
+                "L004-spa-2024-2-0",
+                "L004-spa-2024-2-1",
+                "L004-spa-2024-3-0",
+                "L004-spa-2024-3-1",
+                "L004-spa-2025-1-0",
+                "L004-spa-2025-1-1",
+                "L004-spa-2025-2-0",
+                "L004-spa-2025-2-1",
+                "L004-spa-2025-3-0",
+                "L004-spa-2025-3-1",
+                "L004-spa-2026-1-0",
+                "L004-spa-2026-1-1"
+              ],
+              "kind": "mixed",
+              "skill": "spatial_reasoning",
+              "statement": "Recorded spatial reasoning assessment averages were between 37% and 88% across 6 terms. They do not meet the rubric's sustained high or low thresholds.",
+              "trend": [
+                {
+                  "percent": 88.0,
+                  "term": 2,
+                  "year": 2024
+                },
+                {
+                  "percent": 87.0,
+                  "term": 3,
+                  "year": 2024
+                },
+                {
+                  "percent": 38.0,
+                  "term": 1,
+                  "year": 2025
+                },
+                {
+                  "percent": 40.0,
+                  "term": 2,
+                  "year": 2025
+                },
+                {
+                  "percent": 37.0,
+                  "term": 3,
+                  "year": 2025
+                },
+                {
+                  "percent": 39.0,
+                  "term": 1,
+                  "year": 2026
+                }
+              ]
+            }
+          ],
+          "learner_id": "L004",
+          "lens": "consistency",
+          "policy_hash": "9a379178b5020d50df9bee003713fbffa912f0c1e1087f8444de4ae8df107864",
+          "policy_version": 1,
+          "scope": "all"
+        },
+        "learner_id": "L004"
+      },
+      "outputs": {
+        "content_hash": "284b5214f45fbc609f4b8f0852e3750286c71fc492092549845973fa37596d47",
+        "errors": [
+          "Term results changed substantially. Check the trajectory lens before concluding."
+        ],
+        "needs_trajectory": true,
+        "revision": 1,
+        "valid": false
+      },
+      "run_id": "1a8d0b5f508b46b0849c5938641be230",
+      "status": "ok"
+    },
+    {
+      "id": 148,
+      "at": "2026-11-12T12:17:08.491+00:00",
+      "actor": "agent",
+      "action": "model_plan",
+      "inputs": {
+        "goal": "Review this learner's assessment history for sustained patterns and changes.",
+        "minimum_terms": 3,
+        "observations": {
+          "assessment_percentages_in_date_order": {
+            "reading_comprehension": [
+              60.0,
+              56.0,
+              59.0,
+              55.0,
+              63.0,
+              59.0,
+              62.0,
+              58.0,
+              61.0,
+              57.0,
+              65.0,
+              61.0
+            ],
+            "spatial_reasoning": [
+              90.0,
+              86.0,
+              89.0,
+              85.0,
+              40.0,
+              36.0,
+              42.0,
+              38.0,
+              39.0,
+              35.0,
+              41.0,
+              37.0
+            ]
+          },
+          "findings": [
+            {
+              "kind": "mixed",
+              "skill": "reading_comprehension"
+            },
+            {
+              "kind": "mixed",
+              "skill": "spatial_reasoning"
+            }
+          ],
+          "scope": "all",
+          "term_count": 6,
+          "validation": {
+            "content_hash": "284b5214f45fbc609f4b8f0852e3750286c71fc492092549845973fa37596d47",
+            "errors": [
+              "Term results changed substantially. Check the trajectory lens before concluding."
+            ],
+            "needs_trajectory": true,
+            "revision": 1,
+            "valid": false
+          },
+          "year_count": 3
+        },
+        "options": [
+          "assess_trajectory"
+        ],
+        "previous_error": ""
+      },
+      "outputs": {
+        "decision": {
+          "action": "assess_trajectory",
+          "reason": "Model selected this permitted action."
+        },
+        "usage": {
+          "api_cost_usd": 0,
+          "decoding": "greedy_model_logits_with_finite_action_json_grammar",
+          "execution": "local_open_weights",
+          "input_tokens": 496,
+          "latency_ms": 2511,
+          "model": "Qwen/Qwen2.5-0.5B-Instruct",
+          "output_tokens": 8,
+          "revision": "7ae557604adf67be50417f59c2c2f167def9a775"
+        }
+      },
+      "run_id": "1a8d0b5f508b46b0849c5938641be230",
+      "status": "ok"
+    },
+    {
+      "id": 149,
+      "at": "2026-11-12T12:17:08.492+00:00",
+      "actor": "agent",
+      "action": "assess_longitudinal_patterns.request",
+      "inputs": {
+        "learner_id": "L004",
+        "lens": "trajectory",
+        "policy": {
+          "improvement_points": 15,
+          "minimum_assessments": 3,
+          "minimum_terms": 3,
+          "name": "Demo Primary School longitudinal evidence rubric",
+          "review": "Every finding needs its source assessment IDs. A teacher reviews the evidence before approval. Guardian release requires a recorded teacher-guardian conversation.",
+          "scope": "Compare the same learner and skill across dated terms. Describe demonstrated performance on these assessments. Never assign an ability identity, diagnosis, career or subject track. Attendance and notes provide context, not causal explanations.",
+          "strength_floor": 70,
+          "support_ceiling": 45,
+          "synthetic": true,
+          "version": 1
+        },
+        "scope": "all"
+      },
+      "outputs": {
+        "status": "started"
+      },
+      "run_id": "1a8d0b5f508b46b0849c5938641be230",
+      "status": "ok"
+    },
+    {
+      "id": 150,
+      "at": "2026-11-12T12:17:08.497+00:00",
+      "actor": "agent",
+      "action": "assess_longitudinal_patterns",
+      "inputs": {
+        "learner_id": "L004",
+        "lens": "trajectory",
+        "policy": {
+          "improvement_points": 15,
+          "minimum_assessments": 3,
+          "minimum_terms": 3,
+          "name": "Demo Primary School longitudinal evidence rubric",
+          "review": "Every finding needs its source assessment IDs. A teacher reviews the evidence before approval. Guardian release requires a recorded teacher-guardian conversation.",
+          "scope": "Compare the same learner and skill across dated terms. Describe demonstrated performance on these assessments. Never assign an ability identity, diagnosis, career or subject track. Attendance and notes provide context, not causal explanations.",
+          "strength_floor": 70,
+          "support_ceiling": 45,
+          "synthetic": true,
+          "version": 1
+        },
+        "scope": "all"
+      },
+      "outputs": {
+        "caveats": [
+          "These observations describe the supplied assessments and their recorded skill tags.",
+          "Different assessment difficulty, missing records and changes in teaching may affect comparisons.",
+          "Teachers determine appropriate support through discussion with the learner and guardian."
+        ],
+        "context_ids": [],
+        "evidence_revision": 1,
+        "excluded_ids": [],
+        "findings": [
+          {
+            "evidence_ids": [
+              "L004-rea-2024-2-0",
+              "L004-rea-2024-2-1",
+              "L004-rea-2024-3-0",
+              "L004-rea-2024-3-1",
+              "L004-rea-2025-1-0",
+              "L004-rea-2025-1-1",
+              "L004-rea-2025-2-0",
+              "L004-rea-2025-2-1",
+              "L004-rea-2025-3-0",
+              "L004-rea-2025-3-1",
+              "L004-rea-2026-1-0",
+              "L004-rea-2026-1-1"
+            ],
+            "kind": "mixed",
+            "skill": "reading_comprehension",
+            "statement": "Recorded reading comprehension assessment averages were between 57% and 63% across 6 terms. They do not meet the rubric's sustained high or low thresholds.",
+            "trend": [
+              {
+                "percent": 58.0,
+                "term": 2,
+                "year": 2024
+              },
+              {
+                "percent": 57.0,
+                "term": 3,
+                "year": 2024
+              },
+              {
+                "percent": 61.0,
+                "term": 1,
+                "year": 2025
+              },
+              {
+                "percent": 60.0,
+                "term": 2,
+                "year": 2025
+              },
+              {
+                "percent": 59.0,
+                "term": 3,
+                "year": 2025
+              },
+              {
+                "percent": 63.0,
+                "term": 1,
+                "year": 2026
+              }
+            ]
+          },
+          {
+            "evidence_ids": [
+              "L004-spa-2024-2-0",
+              "L004-spa-2024-2-1",
+              "L004-spa-2024-3-0",
+              "L004-spa-2024-3-1",
+              "L004-spa-2025-1-0",
+              "L004-spa-2025-1-1",
+              "L004-spa-2025-2-0",
+              "L004-spa-2025-2-1",
+              "L004-spa-2025-3-0",
+              "L004-spa-2025-3-1",
+              "L004-spa-2026-1-0",
+              "L004-spa-2026-1-1"
+            ],
+            "kind": "declining",
+            "skill": "spatial_reasoning",
+            "statement": "Recorded spatial reasoning assessment averages decreased from 88% to 39% across 6 terms. Assessment difficulty may differ between terms.",
+            "trend": [
+              {
+                "percent": 88.0,
+                "term": 2,
+                "year": 2024
+              },
+              {
+                "percent": 87.0,
+                "term": 3,
+                "year": 2024
+              },
+              {
+                "percent": 38.0,
+                "term": 1,
+                "year": 2025
+              },
+              {
+                "percent": 40.0,
+                "term": 2,
+                "year": 2025
+              },
+              {
+                "percent": 37.0,
+                "term": 3,
+                "year": 2025
+              },
+              {
+                "percent": 39.0,
+                "term": 1,
+                "year": 2026
+              }
+            ]
+          }
+        ],
+        "learner_id": "L004",
+        "lens": "trajectory",
+        "policy_hash": "9a379178b5020d50df9bee003713fbffa912f0c1e1087f8444de4ae8df107864",
+        "policy_version": 1,
+        "scope": "all"
+      },
+      "run_id": "1a8d0b5f508b46b0849c5938641be230",
+      "status": "ok"
+    },
+    {
+      "id": 151,
+      "at": "2026-11-12T12:17:10.294+00:00",
+      "actor": "agent",
+      "action": "model_plan",
+      "inputs": {
+        "goal": "Review this learner's assessment history for sustained patterns and changes.",
+        "minimum_terms": 3,
+        "observations": {
+          "assessment_percentages_in_date_order": {
+            "reading_comprehension": [
+              60.0,
+              56.0,
+              59.0,
+              55.0,
+              63.0,
+              59.0,
+              62.0,
+              58.0,
+              61.0,
+              57.0,
+              65.0,
+              61.0
+            ],
+            "spatial_reasoning": [
+              90.0,
+              86.0,
+              89.0,
+              85.0,
+              40.0,
+              36.0,
+              42.0,
+              38.0,
+              39.0,
+              35.0,
+              41.0,
+              37.0
+            ]
+          },
+          "findings": [
+            {
+              "kind": "mixed",
+              "skill": "reading_comprehension"
+            },
+            {
+              "kind": "declining",
+              "skill": "spatial_reasoning"
+            }
+          ],
+          "scope": "all",
+          "term_count": 6,
+          "year_count": 3
+        },
+        "options": [
+          "validate"
+        ],
+        "previous_error": ""
+      },
+      "outputs": {
+        "decision": {
+          "action": "validate",
+          "reason": "Model selected this permitted action."
+        },
+        "usage": {
+          "api_cost_usd": 0,
+          "decoding": "greedy_model_logits_with_finite_action_json_grammar",
+          "execution": "local_open_weights",
+          "input_tokens": 391,
+          "latency_ms": 1792,
+          "model": "Qwen/Qwen2.5-0.5B-Instruct",
+          "output_tokens": 6,
+          "revision": "7ae557604adf67be50417f59c2c2f167def9a775"
+        }
+      },
+      "run_id": "1a8d0b5f508b46b0849c5938641be230",
+      "status": "ok"
+    },
+    {
+      "id": 152,
+      "at": "2026-11-12T12:17:10.295+00:00",
+      "actor": "agent",
+      "action": "validate_learner_profile.request",
+      "inputs": {
+        "draft": {
+          "caveats": [
+            "These observations describe the supplied assessments and their recorded skill tags.",
+            "Different assessment difficulty, missing records and changes in teaching may affect comparisons.",
+            "Teachers determine appropriate support through discussion with the learner and guardian."
+          ],
+          "context_ids": [],
+          "evidence_revision": 1,
+          "excluded_ids": [],
+          "findings": [
+            {
+              "evidence_ids": [
+                "L004-rea-2024-2-0",
+                "L004-rea-2024-2-1",
+                "L004-rea-2024-3-0",
+                "L004-rea-2024-3-1",
+                "L004-rea-2025-1-0",
+                "L004-rea-2025-1-1",
+                "L004-rea-2025-2-0",
+                "L004-rea-2025-2-1",
+                "L004-rea-2025-3-0",
+                "L004-rea-2025-3-1",
+                "L004-rea-2026-1-0",
+                "L004-rea-2026-1-1"
+              ],
+              "kind": "mixed",
+              "skill": "reading_comprehension",
+              "statement": "Recorded reading comprehension assessment averages were between 57% and 63% across 6 terms. They do not meet the rubric's sustained high or low thresholds.",
+              "trend": [
+                {
+                  "percent": 58.0,
+                  "term": 2,
+                  "year": 2024
+                },
+                {
+                  "percent": 57.0,
+                  "term": 3,
+                  "year": 2024
+                },
+                {
+                  "percent": 61.0,
+                  "term": 1,
+                  "year": 2025
+                },
+                {
+                  "percent": 60.0,
+                  "term": 2,
+                  "year": 2025
+                },
+                {
+                  "percent": 59.0,
+                  "term": 3,
+                  "year": 2025
+                },
+                {
+                  "percent": 63.0,
+                  "term": 1,
+                  "year": 2026
+                }
+              ]
+            },
+            {
+              "evidence_ids": [
+                "L004-spa-2024-2-0",
+                "L004-spa-2024-2-1",
+                "L004-spa-2024-3-0",
+                "L004-spa-2024-3-1",
+                "L004-spa-2025-1-0",
+                "L004-spa-2025-1-1",
+                "L004-spa-2025-2-0",
+                "L004-spa-2025-2-1",
+                "L004-spa-2025-3-0",
+                "L004-spa-2025-3-1",
+                "L004-spa-2026-1-0",
+                "L004-spa-2026-1-1"
+              ],
+              "kind": "declining",
+              "skill": "spatial_reasoning",
+              "statement": "Recorded spatial reasoning assessment averages decreased from 88% to 39% across 6 terms. Assessment difficulty may differ between terms.",
+              "trend": [
+                {
+                  "percent": 88.0,
+                  "term": 2,
+                  "year": 2024
+                },
+                {
+                  "percent": 87.0,
+                  "term": 3,
+                  "year": 2024
+                },
+                {
+                  "percent": 38.0,
+                  "term": 1,
+                  "year": 2025
+                },
+                {
+                  "percent": 40.0,
+                  "term": 2,
+                  "year": 2025
+                },
+                {
+                  "percent": 37.0,
+                  "term": 3,
+                  "year": 2025
+                },
+                {
+                  "percent": 39.0,
+                  "term": 1,
+                  "year": 2026
+                }
+              ]
+            }
+          ],
+          "learner_id": "L004",
+          "lens": "trajectory",
+          "policy_hash": "9a379178b5020d50df9bee003713fbffa912f0c1e1087f8444de4ae8df107864",
+          "policy_version": 1,
+          "scope": "all"
+        },
+        "learner_id": "L004"
+      },
+      "outputs": {
+        "status": "started"
+      },
+      "run_id": "1a8d0b5f508b46b0849c5938641be230",
+      "status": "ok"
+    },
+    {
+      "id": 153,
+      "at": "2026-11-12T12:17:10.299+00:00",
+      "actor": "agent",
+      "action": "validate_learner_profile",
+      "inputs": {
+        "draft": {
+          "caveats": [
+            "These observations describe the supplied assessments and their recorded skill tags.",
+            "Different assessment difficulty, missing records and changes in teaching may affect comparisons.",
+            "Teachers determine appropriate support through discussion with the learner and guardian."
+          ],
+          "context_ids": [],
+          "evidence_revision": 1,
+          "excluded_ids": [],
+          "findings": [
+            {
+              "evidence_ids": [
+                "L004-rea-2024-2-0",
+                "L004-rea-2024-2-1",
+                "L004-rea-2024-3-0",
+                "L004-rea-2024-3-1",
+                "L004-rea-2025-1-0",
+                "L004-rea-2025-1-1",
+                "L004-rea-2025-2-0",
+                "L004-rea-2025-2-1",
+                "L004-rea-2025-3-0",
+                "L004-rea-2025-3-1",
+                "L004-rea-2026-1-0",
+                "L004-rea-2026-1-1"
+              ],
+              "kind": "mixed",
+              "skill": "reading_comprehension",
+              "statement": "Recorded reading comprehension assessment averages were between 57% and 63% across 6 terms. They do not meet the rubric's sustained high or low thresholds.",
+              "trend": [
+                {
+                  "percent": 58.0,
+                  "term": 2,
+                  "year": 2024
+                },
+                {
+                  "percent": 57.0,
+                  "term": 3,
+                  "year": 2024
+                },
+                {
+                  "percent": 61.0,
+                  "term": 1,
+                  "year": 2025
+                },
+                {
+                  "percent": 60.0,
+                  "term": 2,
+                  "year": 2025
+                },
+                {
+                  "percent": 59.0,
+                  "term": 3,
+                  "year": 2025
+                },
+                {
+                  "percent": 63.0,
+                  "term": 1,
+                  "year": 2026
+                }
+              ]
+            },
+            {
+              "evidence_ids": [
+                "L004-spa-2024-2-0",
+                "L004-spa-2024-2-1",
+                "L004-spa-2024-3-0",
+                "L004-spa-2024-3-1",
+                "L004-spa-2025-1-0",
+                "L004-spa-2025-1-1",
+                "L004-spa-2025-2-0",
+                "L004-spa-2025-2-1",
+                "L004-spa-2025-3-0",
+                "L004-spa-2025-3-1",
+                "L004-spa-2026-1-0",
+                "L004-spa-2026-1-1"
+              ],
+              "kind": "declining",
+              "skill": "spatial_reasoning",
+              "statement": "Recorded spatial reasoning assessment averages decreased from 88% to 39% across 6 terms. Assessment difficulty may differ between terms.",
+              "trend": [
+                {
+                  "percent": 88.0,
+                  "term": 2,
+                  "year": 2024
+                },
+                {
+                  "percent": 87.0,
+                  "term": 3,
+                  "year": 2024
+                },
+                {
+                  "percent": 38.0,
+                  "term": 1,
+                  "year": 2025
+                },
+                {
+                  "percent": 40.0,
+                  "term": 2,
+                  "year": 2025
+                },
+                {
+                  "percent": 37.0,
+                  "term": 3,
+                  "year": 2025
+                },
+                {
+                  "percent": 39.0,
+                  "term": 1,
+                  "year": 2026
+                }
+              ]
+            }
+          ],
+          "learner_id": "L004",
+          "lens": "trajectory",
+          "policy_hash": "9a379178b5020d50df9bee003713fbffa912f0c1e1087f8444de4ae8df107864",
+          "policy_version": 1,
+          "scope": "all"
+        },
+        "learner_id": "L004"
+      },
+      "outputs": {
+        "content_hash": "a3cbbf353a1711265a2f56cd0a42a225c22637285f04d9b66bed9c77981b09a3",
+        "errors": [],
+        "needs_trajectory": false,
+        "revision": 1,
+        "valid": true
+      },
+      "run_id": "1a8d0b5f508b46b0849c5938641be230",
+      "status": "ok"
+    },
+    {
+      "id": 154,
+      "at": "2026-11-12T12:17:12.692+00:00",
+      "actor": "agent",
+      "action": "model_plan",
+      "inputs": {
+        "goal": "Review this learner's assessment history for sustained patterns and changes.",
+        "minimum_terms": 3,
+        "observations": {
+          "assessment_percentages_in_date_order": {
+            "reading_comprehension": [
+              60.0,
+              56.0,
+              59.0,
+              55.0,
+              63.0,
+              59.0,
+              62.0,
+              58.0,
+              61.0,
+              57.0,
+              65.0,
+              61.0
+            ],
+            "spatial_reasoning": [
+              90.0,
+              86.0,
+              89.0,
+              85.0,
+              40.0,
+              36.0,
+              42.0,
+              38.0,
+              39.0,
+              35.0,
+              41.0,
+              37.0
+            ]
+          },
+          "findings": [
+            {
+              "kind": "mixed",
+              "skill": "reading_comprehension"
+            },
+            {
+              "kind": "declining",
+              "skill": "spatial_reasoning"
+            }
+          ],
+          "scope": "all",
+          "term_count": 6,
+          "validation": {
+            "content_hash": "a3cbbf353a1711265a2f56cd0a42a225c22637285f04d9b66bed9c77981b09a3",
+            "errors": [],
+            "needs_trajectory": false,
+            "revision": 1,
+            "valid": true
+          },
+          "year_count": 3
+        },
+        "options": [
+          "save"
+        ],
+        "previous_error": ""
+      },
+      "outputs": {
+        "decision": {
+          "action": "save",
+          "reason": "Model selected this permitted action."
+        },
+        "usage": {
+          "api_cost_usd": 0,
+          "decoding": "greedy_model_logits_with_finite_action_json_grammar",
+          "execution": "local_open_weights",
+          "input_tokens": 481,
+          "latency_ms": 2388,
+          "model": "Qwen/Qwen2.5-0.5B-Instruct",
+          "output_tokens": 6,
+          "revision": "7ae557604adf67be50417f59c2c2f167def9a775"
+        }
+      },
+      "run_id": "1a8d0b5f508b46b0849c5938641be230",
+      "status": "ok"
+    },
+    {
+      "id": 155,
+      "at": "2026-11-12T12:17:12.694+00:00",
+      "actor": "agent",
+      "action": "save_profile_draft.request",
+      "inputs": {
+        "draft": {
+          "caveats": [
+            "These observations describe the supplied assessments and their recorded skill tags.",
+            "Different assessment difficulty, missing records and changes in teaching may affect comparisons.",
+            "Teachers determine appropriate support through discussion with the learner and guardian."
+          ],
+          "context_ids": [],
+          "evidence_revision": 1,
+          "excluded_ids": [],
+          "findings": [
+            {
+              "evidence_ids": [
+                "L004-rea-2024-2-0",
+                "L004-rea-2024-2-1",
+                "L004-rea-2024-3-0",
+                "L004-rea-2024-3-1",
+                "L004-rea-2025-1-0",
+                "L004-rea-2025-1-1",
+                "L004-rea-2025-2-0",
+                "L004-rea-2025-2-1",
+                "L004-rea-2025-3-0",
+                "L004-rea-2025-3-1",
+                "L004-rea-2026-1-0",
+                "L004-rea-2026-1-1"
+              ],
+              "kind": "mixed",
+              "skill": "reading_comprehension",
+              "statement": "Recorded reading comprehension assessment averages were between 57% and 63% across 6 terms. They do not meet the rubric's sustained high or low thresholds.",
+              "trend": [
+                {
+                  "percent": 58.0,
+                  "term": 2,
+                  "year": 2024
+                },
+                {
+                  "percent": 57.0,
+                  "term": 3,
+                  "year": 2024
+                },
+                {
+                  "percent": 61.0,
+                  "term": 1,
+                  "year": 2025
+                },
+                {
+                  "percent": 60.0,
+                  "term": 2,
+                  "year": 2025
+                },
+                {
+                  "percent": 59.0,
+                  "term": 3,
+                  "year": 2025
+                },
+                {
+                  "percent": 63.0,
+                  "term": 1,
+                  "year": 2026
+                }
+              ]
+            },
+            {
+              "evidence_ids": [
+                "L004-spa-2024-2-0",
+                "L004-spa-2024-2-1",
+                "L004-spa-2024-3-0",
+                "L004-spa-2024-3-1",
+                "L004-spa-2025-1-0",
+                "L004-spa-2025-1-1",
+                "L004-spa-2025-2-0",
+                "L004-spa-2025-2-1",
+                "L004-spa-2025-3-0",
+                "L004-spa-2025-3-1",
+                "L004-spa-2026-1-0",
+                "L004-spa-2026-1-1"
+              ],
+              "kind": "declining",
+              "skill": "spatial_reasoning",
+              "statement": "Recorded spatial reasoning assessment averages decreased from 88% to 39% across 6 terms. Assessment difficulty may differ between terms.",
+              "trend": [
+                {
+                  "percent": 88.0,
+                  "term": 2,
+                  "year": 2024
+                },
+                {
+                  "percent": 87.0,
+                  "term": 3,
+                  "year": 2024
+                },
+                {
+                  "percent": 38.0,
+                  "term": 1,
+                  "year": 2025
+                },
+                {
+                  "percent": 40.0,
+                  "term": 2,
+                  "year": 2025
+                },
+                {
+                  "percent": 37.0,
+                  "term": 3,
+                  "year": 2025
+                },
+                {
+                  "percent": 39.0,
+                  "term": 1,
+                  "year": 2026
+                }
+              ]
+            }
+          ],
+          "learner_id": "L004",
+          "lens": "trajectory",
+          "policy_hash": "9a379178b5020d50df9bee003713fbffa912f0c1e1087f8444de4ae8df107864",
+          "policy_version": 1,
+          "scope": "all"
+        },
+        "learner_id": "L004"
+      },
+      "outputs": {
+        "status": "started"
+      },
+      "run_id": "1a8d0b5f508b46b0849c5938641be230",
+      "status": "ok"
+    },
+    {
+      "id": 156,
+      "at": "2026-11-12T12:17:12.697+00:00",
+      "actor": "agent",
+      "action": "save_profile_draft",
+      "inputs": {
+        "draft": {
+          "caveats": [
+            "These observations describe the supplied assessments and their recorded skill tags.",
+            "Different assessment difficulty, missing records and changes in teaching may affect comparisons.",
+            "Teachers determine appropriate support through discussion with the learner and guardian."
+          ],
+          "context_ids": [],
+          "evidence_revision": 1,
+          "excluded_ids": [],
+          "findings": [
+            {
+              "evidence_ids": [
+                "L004-rea-2024-2-0",
+                "L004-rea-2024-2-1",
+                "L004-rea-2024-3-0",
+                "L004-rea-2024-3-1",
+                "L004-rea-2025-1-0",
+                "L004-rea-2025-1-1",
+                "L004-rea-2025-2-0",
+                "L004-rea-2025-2-1",
+                "L004-rea-2025-3-0",
+                "L004-rea-2025-3-1",
+                "L004-rea-2026-1-0",
+                "L004-rea-2026-1-1"
+              ],
+              "kind": "mixed",
+              "skill": "reading_comprehension",
+              "statement": "Recorded reading comprehension assessment averages were between 57% and 63% across 6 terms. They do not meet the rubric's sustained high or low thresholds.",
+              "trend": [
+                {
+                  "percent": 58.0,
+                  "term": 2,
+                  "year": 2024
+                },
+                {
+                  "percent": 57.0,
+                  "term": 3,
+                  "year": 2024
+                },
+                {
+                  "percent": 61.0,
+                  "term": 1,
+                  "year": 2025
+                },
+                {
+                  "percent": 60.0,
+                  "term": 2,
+                  "year": 2025
+                },
+                {
+                  "percent": 59.0,
+                  "term": 3,
+                  "year": 2025
+                },
+                {
+                  "percent": 63.0,
+                  "term": 1,
+                  "year": 2026
+                }
+              ]
+            },
+            {
+              "evidence_ids": [
+                "L004-spa-2024-2-0",
+                "L004-spa-2024-2-1",
+                "L004-spa-2024-3-0",
+                "L004-spa-2024-3-1",
+                "L004-spa-2025-1-0",
+                "L004-spa-2025-1-1",
+                "L004-spa-2025-2-0",
+                "L004-spa-2025-2-1",
+                "L004-spa-2025-3-0",
+                "L004-spa-2025-3-1",
+                "L004-spa-2026-1-0",
+                "L004-spa-2026-1-1"
+              ],
+              "kind": "declining",
+              "skill": "spatial_reasoning",
+              "statement": "Recorded spatial reasoning assessment averages decreased from 88% to 39% across 6 terms. Assessment difficulty may differ between terms.",
+              "trend": [
+                {
+                  "percent": 88.0,
+                  "term": 2,
+                  "year": 2024
+                },
+                {
+                  "percent": 87.0,
+                  "term": 3,
+                  "year": 2024
+                },
+                {
+                  "percent": 38.0,
+                  "term": 1,
+                  "year": 2025
+                },
+                {
+                  "percent": 40.0,
+                  "term": 2,
+                  "year": 2025
+                },
+                {
+                  "percent": 37.0,
+                  "term": 3,
+                  "year": 2025
+                },
+                {
+                  "percent": 39.0,
+                  "term": 1,
+                  "year": 2026
+                }
+              ]
+            }
+          ],
+          "learner_id": "L004",
+          "lens": "trajectory",
+          "policy_hash": "9a379178b5020d50df9bee003713fbffa912f0c1e1087f8444de4ae8df107864",
+          "policy_version": 1,
+          "scope": "all"
+        },
+        "learner_id": "L004"
+      },
+      "outputs": {
+        "profile_id": "2b867080661e455983982b5a0f4d01d8",
+        "reused": false,
+        "state": "pending_review"
+      },
+      "run_id": "1a8d0b5f508b46b0849c5938641be230",
+      "status": "ok"
+    },
+    {
+      "id": 157,
+      "at": "2026-11-12T12:17:12.699+00:00",
+      "actor": "agent",
+      "action": "run_completed",
+      "inputs": {},
+      "outputs": {
+        "profile_id": "2b867080661e455983982b5a0f4d01d8"
+      },
+      "run_id": "1a8d0b5f508b46b0849c5938641be230",
+      "status": "ok"
+    }
+  ],
+  "profile": {
+    "id": "2b867080661e455983982b5a0f4d01d8",
+    "learner_id": "L004",
+    "run_id": "1a8d0b5f508b46b0849c5938641be230",
+    "evidence_revision": 1,
+    "content": {
+      "caveats": [
+        "These observations describe the supplied assessments and their recorded skill tags.",
+        "Different assessment difficulty, missing records and changes in teaching may affect comparisons.",
+        "Teachers determine appropriate support through discussion with the learner and guardian."
+      ],
+      "context_ids": [],
+      "evidence_revision": 1,
+      "excluded_ids": [],
+      "findings": [
+        {
+          "evidence_ids": [
+            "L004-rea-2024-2-0",
+            "L004-rea-2024-2-1",
+            "L004-rea-2024-3-0",
+            "L004-rea-2024-3-1",
+            "L004-rea-2025-1-0",
+            "L004-rea-2025-1-1",
+            "L004-rea-2025-2-0",
+            "L004-rea-2025-2-1",
+            "L004-rea-2025-3-0",
+            "L004-rea-2025-3-1",
+            "L004-rea-2026-1-0",
+            "L004-rea-2026-1-1"
+          ],
+          "kind": "mixed",
+          "skill": "reading_comprehension",
+          "statement": "Recorded reading comprehension assessment averages were between 57% and 63% across 6 terms. They do not meet the rubric's sustained high or low thresholds.",
+          "trend": [
+            {
+              "percent": 58.0,
+              "term": 2,
+              "year": 2024
+            },
+            {
+              "percent": 57.0,
+              "term": 3,
+              "year": 2024
+            },
+            {
+              "percent": 61.0,
+              "term": 1,
+              "year": 2025
+            },
+            {
+              "percent": 60.0,
+              "term": 2,
+              "year": 2025
+            },
+            {
+              "percent": 59.0,
+              "term": 3,
+              "year": 2025
+            },
+            {
+              "percent": 63.0,
+              "term": 1,
+              "year": 2026
+            }
+          ]
+        },
+        {
+          "evidence_ids": [
+            "L004-spa-2024-2-0",
+            "L004-spa-2024-2-1",
+            "L004-spa-2024-3-0",
+            "L004-spa-2024-3-1",
+            "L004-spa-2025-1-0",
+            "L004-spa-2025-1-1",
+            "L004-spa-2025-2-0",
+            "L004-spa-2025-2-1",
+            "L004-spa-2025-3-0",
+            "L004-spa-2025-3-1",
+            "L004-spa-2026-1-0",
+            "L004-spa-2026-1-1"
+          ],
+          "kind": "declining",
+          "skill": "spatial_reasoning",
+          "statement": "Recorded spatial reasoning assessment averages decreased from 88% to 39% across 6 terms. Assessment difficulty may differ between terms.",
+          "trend": [
+            {
+              "percent": 88.0,
+              "term": 2,
+              "year": 2024
+            },
+            {
+              "percent": 87.0,
+              "term": 3,
+              "year": 2024
+            },
+            {
+              "percent": 38.0,
+              "term": 1,
+              "year": 2025
+            },
+            {
+              "percent": 40.0,
+              "term": 2,
+              "year": 2025
+            },
+            {
+              "percent": 37.0,
+              "term": 3,
+              "year": 2025
+            },
+            {
+              "percent": 39.0,
+              "term": 1,
+              "year": 2026
+            }
+          ]
+        }
+      ],
+      "learner_id": "L004",
+      "lens": "trajectory",
+      "policy_hash": "9a379178b5020d50df9bee003713fbffa912f0c1e1087f8444de4ae8df107864",
+      "policy_version": 1,
+      "scope": "all"
+    },
+    "content_hash": "a3cbbf353a1711265a2f56cd0a42a225c22637285f04d9b66bed9c77981b09a3",
+    "state": "pending_review",
+    "created_at": "2026-11-12T12:17:12.697+00:00",
+    "approved_by": null,
+    "approved_at": null,
+    "review_note": null,
+    "released_by": null,
+    "released_at": null
+  }
+}

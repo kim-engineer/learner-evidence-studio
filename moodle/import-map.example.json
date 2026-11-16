@@ -1,0 +1,10 @@
+{
+  "user_id": 12,
+  "course_id": 8,
+  "academic_year": 2026,
+  "term": 1,
+  "items": [
+    {"item_id": 33, "skill": "reading_comprehension", "observed_at": "2026-03-10"},
+    {"item_id": 34, "skill": "spatial_reasoning", "observed_at": "2026-03-18"}
+  ]
+}

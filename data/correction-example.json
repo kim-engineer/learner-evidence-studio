@@ -1,0 +1,15 @@
+{
+  "id": "L001-rea-2024-2-0",
+  "kind": "assessment",
+  "skill": "reading_comprehension",
+  "academic_year": 2024,
+  "term": 2,
+  "observed_at": "2024-06-10",
+  "recorded_at": "2024-06-28",
+  "title": "Reading Comprehension task 1",
+  "score": 40,
+  "maximum": 100,
+  "note": "Synthetic correction example: score rechecked against the original scan.",
+  "source": "synthetic://L001/2024/T2/reading_comprehension/0",
+  "reliable": true
+}

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Learner Evidence Studio</title>
+<link rel="stylesheet" href="/static/style.css">
+<script src="/static/app.js" defer></script>
+</head>
+<body>
+<section id="login-screen" class="login-screen">
+  <div class="login-intro"><div class="brand-mark">L</div><p class="eyebrow">LEARNER EVIDENCE STUDIO</p>
+    <h1>A longer view.<br>A better conversation.</h1>
+    <p>Bring assessment history together, follow every finding back to its source, and give teachers the final word.</p>
+    <div class="intro-line"></div><p class="small">Longitudinal strength tracking · Education challenge prototype</p>
+  </div>
+  <form id="login-form" class="login-card">
+    <p class="eyebrow">TEACHER WORKSPACE</p><h2>Welcome back</h2>
+    <p class="muted">Explore four synthetic learner histories.</p>
+    <label>Username<input id="username" name="username" value="demo.teacher" autocomplete="username" required></label>
+    <label>Password<input id="password" name="password" type="password" autocomplete="current-password" required></label>
+    <button class="primary" type="submit">Open workspace</button>
+    <p class="small muted">Demo password <code>lesson-demo-2026</code></p>
+    <p id="login-error" class="error" role="alert"></p>
+  </form>
+</section>
+<div id="workspace" class="workspace hidden">
+  <aside>
+    <div class="brand"><div class="brand-mark">L</div><strong>Learner<br>Evidence Studio</strong></div>
+    <p class="eyebrow sidebar-label">YOUR LEARNERS</p><nav id="learner-nav" aria-label="Learners"></nav><button id="new-learner-open" class="text-button">+ Add learner record</button>
+    <div class="sidebar-bottom"><span class="demo-dot"></span> Synthetic school data
+      <p id="teacher-name"></p><button id="logout" class="text-button">Sign out</button></div>
+  </aside>
+  <main>
+    <header class="topbar"><span>Evidence workspace <span class="muted">/ Teacher review</span></span><button id="import-open" class="secondary">Import evidence</button></header>
+    <div id="notice" class="notice hidden" role="status"></div>
+    <section class="learner-heading"><div><p class="eyebrow">INDIVIDUAL LEARNING RECORD</p><h1 id="learner-title">Learner</h1><p id="learner-subtitle" class="muted"></p></div>
+      <div class="run-controls"><label class="sr-only" for="provider">Model provider</label><select id="provider"><option value="local">Local open-weights model</option><option value="gemini">Gemini</option></select><button id="run-button" class="primary">Review evidence</button></div>
+    </section>
+    <div id="summary-strip" class="summary-strip"></div>
+    <div class="tabs" role="tablist">
+      <button data-tab="profile" class="active" role="tab">Profile & review</button>
+      <button data-tab="evidence" role="tab">Source evidence</button>
+      <button data-tab="trace" role="tab">Agent activity</button>
+    </div>
+    <section id="panel-profile" class="tab-panel"></section>
+    <section id="panel-evidence" class="tab-panel hidden">
+      <div class="section-heading"><div><h2>The evidence behind the story</h2><p class="muted">Dated records for this learner, including uncertainty and late entries.</p></div></div>
+      <div class="table-wrap"><table><thead><tr><th>Assessment / observation</th><th>Term</th><th>Skill</th><th>Result</th><th>Quality</th></tr></thead><tbody id="evidence-body"></tbody></table></div>
+    </section>
+    <section id="panel-trace" class="tab-panel hidden">
+      <div class="section-heading"><div><h2>Agent activity</h2><p class="muted">Plans, MCP tool calls, validation and the final handover.</p></div><button id="trace-download" class="secondary">Download run log</button></div>
+      <div id="run-summary"></div><div id="events" class="events"></div>
+    </section>
+    <footer>Every finding is a starting point for teacher review. The four starting learner records are synthetic.</footer>
+  </main>
+</div>
+<dialog id="source-dialog"><button class="dialog-close" data-close="source-dialog" aria-label="Close source evidence">×</button><p class="eyebrow">SOURCE RECORD</p><div id="source-details"></div></dialog>
+<dialog id="import-dialog"><button class="dialog-close" data-close="import-dialog" aria-label="Close import">×</button><p class="eyebrow">ADD TO THIS LEARNER'S HISTORY</p><h2>Import evidence</h2>
+  <p class="muted">Upload a JSON evidence file using the schema in the project guide. Stable source IDs make repeat imports safe.</p>
+  <form id="import-form"><label>JSON file<input type="file" id="import-file" accept=".json,application/json" required></label>
+    <label class="checkbox"><input type="checkbox" id="import-consent" required> I confirm consent to process these records, or that they are synthetic.</label>
+    <button type="submit" class="primary">Import records</button><p class="error" id="import-error"></p>
+  </form>
+</dialog>
+<dialog id="new-learner-dialog"><button class="dialog-close" data-close="new-learner-dialog" aria-label="Close learner form">×</button><p class="eyebrow">A SEPARATE EVIDENCE HISTORY</p><h2>Add a learner record</h2><p class="muted">Use a pseudonym. Keep the link to the real identity in your school's approved system.</p>
+  <form id="new-learner-form"><label>Learner pseudonym<input id="new-name" maxlength="60" required></label><label>School / programme<input id="new-school" maxlength="100" required></label><label>Grade<input id="new-grade" maxlength="30" required></label><label class="checkbox"><input id="new-consent" type="checkbox" required> I confirm permission to process this learner's records, or that this is a synthetic learner.</label><button class="primary">Create learner record</button><p id="new-error" class="error"></p></form>
+</dialog>
+</body></html>

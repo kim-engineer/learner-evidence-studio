@@ -1,0 +1,9 @@
+{
+  "recorded_at": "2026-11-12T12:25:47.524+00:00",
+  "duration_seconds": 25.51,
+  "kind": "continuous timestamped terminal capture rendered without speed changes or cuts",
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "run_id": "a4980059cf5549f7b880cfd5fd807a6f",
+  "synthetic_data": true,
+  "human_approval_simulated": false
+}

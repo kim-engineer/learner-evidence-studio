@@ -1,0 +1,115 @@
+{
+  "recorded_at": "2026-11-12T12:17:12.799+00:00",
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "python": "3.12.14",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "execution": "real CPU open-weights model + two real stdio MCP servers",
+  "api_cost_usd_per_run": 0,
+  "compute_energy_cost": "not measured",
+  "results": [
+    {
+      "trial": 1,
+      "learner_id": "L001",
+      "run_id": "80350358f4224eac94c65a9e73ade46e",
+      "status": "completed",
+      "duration_seconds": 29.76,
+      "model_calls": 7,
+      "input_tokens": 2571,
+      "output_tokens": 49,
+      "content_hash": "b7d55112ceb2b7bdaf5c54d86eaaad0041718e10f698801f8a9db2b0585bfc73",
+      "trace": "run-01-L001.json",
+      "lens": "trajectory",
+      "findings": {
+        "reading_comprehension": "improving",
+        "spatial_reasoning": "consistent_strength"
+      }
+    },
+    {
+      "trial": 2,
+      "learner_id": "L001",
+      "run_id": "cfe128819ad8456e856ebbe81997f2b1",
+      "status": "completed",
+      "duration_seconds": 14.58,
+      "model_calls": 7,
+      "input_tokens": 2571,
+      "output_tokens": 49,
+      "content_hash": "b7d55112ceb2b7bdaf5c54d86eaaad0041718e10f698801f8a9db2b0585bfc73",
+      "trace": "run-02-L001.json",
+      "lens": "trajectory",
+      "findings": {
+        "reading_comprehension": "improving",
+        "spatial_reasoning": "consistent_strength"
+      }
+    },
+    {
+      "trial": 3,
+      "learner_id": "L001",
+      "run_id": "f3357c38803c49808bb40a49e370ba43",
+      "status": "completed",
+      "duration_seconds": 14.48,
+      "model_calls": 7,
+      "input_tokens": 2571,
+      "output_tokens": 49,
+      "content_hash": "b7d55112ceb2b7bdaf5c54d86eaaad0041718e10f698801f8a9db2b0585bfc73",
+      "trace": "run-03-L001.json",
+      "lens": "trajectory",
+      "findings": {
+        "reading_comprehension": "improving",
+        "spatial_reasoning": "consistent_strength"
+      }
+    },
+    {
+      "trial": 4,
+      "learner_id": "L002",
+      "run_id": "6989a93940484f5a877c11898de9b253",
+      "status": "completed",
+      "duration_seconds": 11.34,
+      "model_calls": 7,
+      "input_tokens": 2570,
+      "output_tokens": 49,
+      "content_hash": "9b9346f92fb521df62d011ed42dfc8942ce401c157d85b67e58e24234a70f31e",
+      "trace": "run-04-L002.json",
+      "lens": "trajectory",
+      "findings": {
+        "reading_comprehension": "persistent_support",
+        "spatial_reasoning": "improving"
+      }
+    },
+    {
+      "trial": 5,
+      "learner_id": "L003",
+      "run_id": "72da3e12e1dc4c27a43154794c0cd247",
+      "status": "completed",
+      "duration_seconds": 7.12,
+      "model_calls": 5,
+      "input_tokens": 1396,
+      "output_tokens": 35,
+      "content_hash": "b567ae10f69498f4e7323255fce04020fb3c586699a273cc7f296aa12e9bea2b",
+      "trace": "run-05-L003.json",
+      "lens": "consistency",
+      "findings": {
+        "reading_comprehension": "insufficient",
+        "spatial_reasoning": "insufficient"
+      }
+    },
+    {
+      "trial": 6,
+      "learner_id": "L004",
+      "run_id": "1a8d0b5f508b46b0849c5938641be230",
+      "status": "completed",
+      "duration_seconds": 13.96,
+      "model_calls": 7,
+      "input_tokens": 2571,
+      "output_tokens": 49,
+      "content_hash": "a3cbbf353a1711265a2f56cd0a42a225c22637285f04d9b66bed9c77981b09a3",
+      "trace": "run-06-L004.json",
+      "lens": "trajectory",
+      "findings": {
+        "reading_comprehension": "mixed",
+        "spatial_reasoning": "declining"
+      }
+    }
+  ],
+  "repeat_L001_identical": true
+}

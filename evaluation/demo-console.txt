@@ -1,0 +1,51 @@
+LEARNER EVIDENCE STUDIO | Longitudinal strength tracking
+Actual CPU model run | Synthetic learner L001 | 6 terms across 2024-2026
+Qwen2.5-0.5B-Instruct + LangGraph + original learner MCP + borrowed filesystem MCP
+Task: inspect evidence, check patterns, validate citations, save a draft for a teacher.
+Loading the local model. No API key is used.
+001.1s MCP  learner: 4 tools discovered
+001.1s MCP  reference: 10 tools discovered
+001.1s CALL reference.read_text_file
+001.1s OUT  reviewed school rubric read through borrowed MCP
+009.5s PLAN -> get_recent (real model output)
+009.5s CALL get_learner_evidence
+         IN  {"learner_id": "L001", "scope": "recent"}
+009.5s OUT  2 terms / 10 source records / recent
+010.4s PLAN -> get_all (real model output)
+010.4s CALL get_learner_evidence
+         IN  {"learner_id": "L001", "scope": "all"}
+010.4s OUT  6 terms / 26 source records / all
+011.6s PLAN -> assess_consistency (real model output)
+011.6s CALL assess_longitudinal_patterns
+         IN  {"learner_id": "L001", "lens": "consistency", "scope": "all"}
+011.6s OUT  consistency lens: mixed, consistent_strength
+012.8s PLAN -> validate (real model output)
+012.8s CALL validate_learner_profile
+         IN  {"learner_id": "L001"}
+012.8s CHECK RETURN FOR ANOTHER CHECK
+         Term results changed substantially. Check the trajectory lens before concluding.
+014.6s PLAN -> assess_trajectory (real model output)
+014.6s CALL assess_longitudinal_patterns
+         IN  {"learner_id": "L001", "lens": "trajectory", "scope": "all"}
+014.6s OUT  trajectory lens: improving, consistent_strength
+015.8s PLAN -> validate (real model output)
+015.8s CALL validate_learner_profile
+         IN  {"learner_id": "L001"}
+015.8s CHECK PASS
+017.3s PLAN -> save (real model output)
+017.3s CALL save_profile_draft
+         IN  {"learner_id": "L001"}
+017.5s WRITE draft saved -> pending_review
+
+FINDING  Recorded reading comprehension assessment averages increased from 36% to 74% across 6 terms. Assessment difficulty may differ between terms.
+SOURCES  12 exact source IDs; first: L001-rea-2024-2-0
+FINDING  Recorded spatial reasoning assessment averages stayed at or above 70% across 6 terms.
+SOURCES  12 exact source IDs; first: L001-spa-2024-2-0
+
+PAUSED FOR TEACHER | Draft cannot be downloaded as a released report yet.
+Approval and a confirmed guardian conversation are separate authenticated actions.
+KNOWN LIMITATION | Different assessment difficulty can mimic skill change.
+The system cannot calibrate that effect. Source comparison remains a teacher's task.
+COMPLETE | 7 model calls | 2571 input / 49 output tokens
+API COST $0 | Local electricity cost not measured | Full trace accompanies this recording.
+END OF CONTINUOUS RECORDING

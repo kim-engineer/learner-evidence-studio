@@ -1,0 +1,19 @@
+{
+  "records": [
+    {
+      "id": "EXAMPLE-reading-2026-t2-a",
+      "kind": "assessment",
+      "skill": "reading_comprehension",
+      "academic_year": 2026,
+      "term": 2,
+      "observed_at": "2026-06-10",
+      "recorded_at": "2026-06-12",
+      "title": "Synthetic reading assessment example",
+      "score": 78,
+      "maximum": 100,
+      "note": "Demonstration only; not a real learner record.",
+      "source": "synthetic:example/reading/2026-term-2",
+      "reliable": true
+    }
+  ]
+}

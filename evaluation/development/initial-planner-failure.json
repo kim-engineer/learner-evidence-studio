@@ -1,0 +1,1185 @@
+{
+  "note": "Development run before finite JSON action decoding; not final-build performance. Retained to show the failure and fix honestly.",
+  "run": {
+    "id": "216fcee6f0b24269a9d272b4b322a407",
+    "learner_id": "L001",
+    "teacher_id": "demo.teacher",
+    "status": "failed",
+    "provider": "local",
+    "model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "started_at": "2026-11-12T11:48:28.058+00:00",
+    "finished_at": "2026-11-12T11:49:16.780+00:00",
+    "error": "unhandled errors in a TaskGroup (1 sub-exception)",
+    "profile_id": null,
+    "input_tokens": 2082,
+    "output_tokens": 328,
+    "model_calls": 12
+  },
+  "events": [
+    {
+      "id": 2,
+      "at": "2026-11-12T11:48:28.058+00:00",
+      "actor": "demo.teacher",
+      "action": "request_profile_review",
+      "inputs": {
+        "learner_id": "L001"
+      },
+      "outputs": {
+        "provider": "local",
+        "run_id": "216fcee6f0b24269a9d272b4b322a407"
+      },
+      "run_id": "216fcee6f0b24269a9d272b4b322a407",
+      "status": "ok"
+    },
+    {
+      "id": 3,
+      "at": "2026-11-12T11:48:29.090+00:00",
+      "actor": "agent",
+      "action": "mcp_discover",
+      "inputs": {
+        "server": "learner"
+      },
+      "outputs": {
+        "tools": [
+          "get_learner_evidence",
+          "assess_longitudinal_patterns",
+          "validate_learner_profile",
+          "save_profile_draft"
+        ]
+      },
+      "run_id": "216fcee6f0b24269a9d272b4b322a407",
+      "status": "ok"
+    },
+    {
+      "id": 4,
+      "at": "2026-11-12T11:48:29.103+00:00",
+      "actor": "agent",
+      "action": "mcp_discover",
+      "inputs": {
+        "server": "reference"
+      },
+      "outputs": {
+        "tools": [
+          "read_file",
+          "read_text_file",
+          "read_media_file",
+          "read_multiple_files",
+          "list_directory",
+          "list_directory_with_sizes",
+          "directory_tree",
+          "search_files",
+          "get_file_info",
+          "list_allowed_directories"
+        ]
+      },
+      "run_id": "216fcee6f0b24269a9d272b4b322a407",
+      "status": "ok"
+    },
+    {
+      "id": 5,
+      "at": "2026-11-12T11:48:29.105+00:00",
+      "actor": "agent",
+      "action": "reference.read_text_file.request",
+      "inputs": {
+        "path": "/workspace/scratch/dde62a0a0583/learner-evidence-studio/reference/policy.json"
+      },
+      "outputs": {
+        "status": "started"
+      },
+      "run_id": "216fcee6f0b24269a9d272b4b322a407",
+      "status": "ok"
+    },
+    {
+      "id": 6,
+      "at": "2026-11-12T11:48:29.115+00:00",
+      "actor": "agent",
+      "action": "reference.read_text_file",
+      "inputs": {
+        "path": "/workspace/scratch/dde62a0a0583/learner-evidence-studio/reference/policy.json"
+      },
+      "outputs": {
+        "improvement_points": 15,
+        "minimum_assessments": 3,
+        "minimum_terms": 3,
+        "name": "Demo Primary School longitudinal evidence rubric",
+        "review": "Every finding needs its source assessment IDs. A teacher reviews the evidence before approval. Guardian release requires a recorded teacher-guardian conversation.",
+        "scope": "Compare the same learner and skill across dated terms. Describe demonstrated performance on these assessments. Never assign an ability identity, diagnosis, career or subject track. Attendance and notes provide context, not causal explanations.",
+        "strength_floor": 70,
+        "support_ceiling": 45,
+        "synthetic": true,
+        "version": 1
+      },
+      "run_id": "216fcee6f0b24269a9d272b4b322a407",
+      "status": "ok"
+    },
+    {
+      "id": 7,
+      "at": "2026-11-12T11:48:47.445+00:00",
+      "actor": "agent",
+      "action": "model_plan",
+      "inputs": {
+        "goal": "Review this learner's assessment history for sustained patterns and changes.",
+        "minimum_terms": 3,
+        "observations": {},
+        "options": [
+          "get_recent",
+          "get_all"
+        ],
+        "previous_error": ""
+      },
+      "outputs": {
+        "decision": {
+          "action": "get_recent",
+          "reason": "This option allows us to examine recent assessments, which might reveal any trends or changes in performance over time."
+        },
+        "usage": {
+          "api_cost_usd": 0,
+          "execution": "local_open_weights",
+          "input_tokens": 147,
+          "latency_ms": 3371,
+          "model": "Qwen/Qwen2.5-0.5B-Instruct",
+          "output_tokens": 34
+        }
+      },
+      "run_id": "216fcee6f0b24269a9d272b4b322a407",
+      "status": "ok"
+    },
+    {
+      "id": 8,
+      "at": "2026-11-12T11:48:47.454+00:00",
+      "actor": "agent",
+      "action": "_get",
+      "inputs": {
+        "learner_id": "L001",
+        "scope": "recent"
+      },
+      "outputs": {
+        "evidence": [
+          {
+            "academic_year": 2025,
+            "id": "L001-rea-2025-3-0",
+            "kind": "assessment",
+            "learner_id": "L001",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2025-09-10",
+            "recorded_at": "2025-09-28",
+            "reliable": 1,
+            "score": 68.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://L001/2025/T3/reading_comprehension/0",
+            "term": 3,
+            "title": "Reading Comprehension task 1"
+          },
+          {
+            "academic_year": 2025,
+            "id": "L001-spa-2025-3-0",
+            "kind": "assessment",
+            "learner_id": "L001",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2025-09-10",
+            "recorded_at": "2025-09-28",
+            "reliable": 1,
+            "score": 82.0,
+            "skill": "spatial_reasoning",
+            "source": "synthetic://L001/2025/T3/spatial_reasoning/0",
+            "term": 3,
+            "title": "Spatial Reasoning task 1"
+          },
+          {
+            "academic_year": 2025,
+            "id": "L001-rea-2025-3-1",
+            "kind": "assessment",
+            "learner_id": "L001",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2025-09-18",
+            "recorded_at": "2025-09-28",
+            "reliable": 1,
+            "score": 64.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://L001/2025/T3/reading_comprehension/1",
+            "term": 3,
+            "title": "Reading Comprehension task 2"
+          },
+          {
+            "academic_year": 2025,
+            "id": "L001-spa-2025-3-1",
+            "kind": "assessment",
+            "learner_id": "L001",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2025-09-18",
+            "recorded_at": "2025-09-28",
+            "reliable": 1,
+            "score": 78.0,
+            "skill": "spatial_reasoning",
+            "source": "synthetic://L001/2025/T3/spatial_reasoning/1",
+            "term": 3,
+            "title": "Spatial Reasoning task 2"
+          },
+          {
+            "academic_year": 2026,
+            "id": "L001-rea-2026-1-0",
+            "kind": "assessment",
+            "learner_id": "L001",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2026-03-10",
+            "recorded_at": "2026-03-28",
+            "reliable": 1,
+            "score": 76.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://L001/2026/T1/reading_comprehension/0",
+            "term": 1,
+            "title": "Reading Comprehension task 1"
+          },
+          {
+            "academic_year": 2026,
+            "id": "L001-spa-2026-1-0",
+            "kind": "assessment",
+            "learner_id": "L001",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2026-03-10",
+            "recorded_at": "2026-03-28",
+            "reliable": 1,
+            "score": 85.0,
+            "skill": "spatial_reasoning",
+            "source": "synthetic://L001/2026/T1/spatial_reasoning/0",
+            "term": 1,
+            "title": "Spatial Reasoning task 1"
+          },
+          {
+            "academic_year": 2026,
+            "id": "L001-rea-2026-1-1",
+            "kind": "assessment",
+            "learner_id": "L001",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2026-03-18",
+            "recorded_at": "2026-03-28",
+            "reliable": 1,
+            "score": 72.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://L001/2026/T1/reading_comprehension/1",
+            "term": 1,
+            "title": "Reading Comprehension task 2"
+          },
+          {
+            "academic_year": 2026,
+            "id": "L001-spa-2026-1-1",
+            "kind": "assessment",
+            "learner_id": "L001",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2026-03-18",
+            "recorded_at": "2026-03-28",
+            "reliable": 1,
+            "score": 81.0,
+            "skill": "spatial_reasoning",
+            "source": "synthetic://L001/2026/T1/spatial_reasoning/1",
+            "term": 1,
+            "title": "Spatial Reasoning task 2"
+          },
+          {
+            "academic_year": 2026,
+            "id": "L001-note-1",
+            "kind": "observation",
+            "learner_id": "L001",
+            "maximum": null,
+            "note": "Asked for extra time to reread the passage. Late entry from a paper notebook.",
+            "observed_at": "2026-03-20",
+            "recorded_at": "2026-04-12",
+            "reliable": 1,
+            "score": null,
+            "skill": "reading_comprehension",
+            "source": "synthetic://teacher-notes/late-entry-1",
+            "term": 1,
+            "title": "Teacher observation"
+          },
+          {
+            "academic_year": 2026,
+            "id": "L001-uncertain-1",
+            "kind": "assessment",
+            "learner_id": "L001",
+            "maximum": 100.0,
+            "note": "Digit may be 38 or 98. Teacher verification pending.",
+            "observed_at": "2026-03-22",
+            "recorded_at": "2026-03-23",
+            "reliable": 0,
+            "score": 98.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://paper-register/uncertain",
+            "term": 1,
+            "title": "Unclear handwritten mark"
+          }
+        ],
+        "learner_id": "L001",
+        "revision": 1,
+        "scope": "recent",
+        "term_count": 2,
+        "year_count": 2
+      },
+      "run_id": "216fcee6f0b24269a9d272b4b322a407",
+      "status": "ok"
+    },
+    {
+      "id": 9,
+      "at": "2026-11-12T11:48:49.187+00:00",
+      "actor": "agent",
+      "action": "model_plan",
+      "inputs": {
+        "goal": "Review this learner's assessment history for sustained patterns and changes.",
+        "minimum_terms": 3,
+        "observations": {
+          "scope": "recent",
+          "term_count": 2,
+          "year_count": 2
+        },
+        "options": [
+          "get_all",
+          "assess_trajectory",
+          "assess_consistency"
+        ],
+        "previous_error": ""
+      },
+      "outputs": {
+        "decision": {
+          "action": "get_all",
+          "reason": "Inspect the recent assessment history for sustained patterns and changes."
+        },
+        "usage": {
+          "api_cost_usd": 0,
+          "execution": "local_open_weights",
+          "input_tokens": 173,
+          "latency_ms": 1725,
+          "model": "Qwen/Qwen2.5-0.5B-Instruct",
+          "output_tokens": 24
+        }
+      },
+      "run_id": "216fcee6f0b24269a9d272b4b322a407",
+      "status": "ok"
+    },
+    {
+      "id": 10,
+      "at": "2026-11-12T11:48:49.194+00:00",
+      "actor": "agent",
+      "action": "_get",
+      "inputs": {
+        "learner_id": "L001",
+        "scope": "all"
+      },
+      "outputs": {
+        "evidence": [
+          {
+            "academic_year": 2024,
+            "id": "L001-rea-2024-2-0",
+            "kind": "assessment",
+            "learner_id": "L001",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2024-06-10",
+            "recorded_at": "2024-06-28",
+            "reliable": 1,
+            "score": 38.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://L001/2024/T2/reading_comprehension/0",
+            "term": 2,
+            "title": "Reading Comprehension task 1"
+          },
+          {
+            "academic_year": 2024,
+            "id": "L001-spa-2024-2-0",
+            "kind": "assessment",
+            "learner_id": "L001",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2024-06-10",
+            "recorded_at": "2024-06-28",
+            "reliable": 1,
+            "score": 74.0,
+            "skill": "spatial_reasoning",
+            "source": "synthetic://L001/2024/T2/spatial_reasoning/0",
+            "term": 2,
+            "title": "Spatial Reasoning task 1"
+          },
+          {
+            "academic_year": 2024,
+            "id": "L001-rea-2024-2-1",
+            "kind": "assessment",
+            "learner_id": "L001",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2024-06-18",
+            "recorded_at": "2024-06-28",
+            "reliable": 1,
+            "score": 34.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://L001/2024/T2/reading_comprehension/1",
+            "term": 2,
+            "title": "Reading Comprehension task 2"
+          },
+          {
+            "academic_year": 2024,
+            "id": "L001-spa-2024-2-1",
+            "kind": "assessment",
+            "learner_id": "L001",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2024-06-18",
+            "recorded_at": "2024-06-28",
+            "reliable": 1,
+            "score": 70.0,
+            "skill": "spatial_reasoning",
+            "source": "synthetic://L001/2024/T2/spatial_reasoning/1",
+            "term": 2,
+            "title": "Spatial Reasoning task 2"
+          },
+          {
+            "academic_year": 2024,
+            "id": "L001-rea-2024-3-0",
+            "kind": "assessment",
+            "learner_id": "L001",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2024-09-10",
+            "recorded_at": "2024-09-28",
+            "reliable": 1,
+            "score": 42.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://L001/2024/T3/reading_comprehension/0",
+            "term": 3,
+            "title": "Reading Comprehension task 1"
+          },
+          {
+            "academic_year": 2024,
+            "id": "L001-spa-2024-3-0",
+            "kind": "assessment",
+            "learner_id": "L001",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2024-09-10",
+            "recorded_at": "2024-09-28",
+            "reliable": 1,
+            "score": 78.0,
+            "skill": "spatial_reasoning",
+            "source": "synthetic://L001/2024/T3/spatial_reasoning/0",
+            "term": 3,
+            "title": "Spatial Reasoning task 1"
+          },
+          {
+            "academic_year": 2024,
+            "id": "L001-rea-2024-3-1",
+            "kind": "assessment",
+            "learner_id": "L001",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2024-09-18",
+            "recorded_at": "2024-09-28",
+            "reliable": 1,
+            "score": 38.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://L001/2024/T3/reading_comprehension/1",
+            "term": 3,
+            "title": "Reading Comprehension task 2"
+          },
+          {
+            "academic_year": 2024,
+            "id": "L001-spa-2024-3-1",
+            "kind": "assessment",
+            "learner_id": "L001",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2024-09-18",
+            "recorded_at": "2024-09-28",
+            "reliable": 1,
+            "score": 74.0,
+            "skill": "spatial_reasoning",
+            "source": "synthetic://L001/2024/T3/spatial_reasoning/1",
+            "term": 3,
+            "title": "Spatial Reasoning task 2"
+          },
+          {
+            "academic_year": 2025,
+            "id": "L001-rea-2025-1-0",
+            "kind": "assessment",
+            "learner_id": "L001",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2025-03-10",
+            "recorded_at": "2025-03-28",
+            "reliable": 1,
+            "score": 51.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://L001/2025/T1/reading_comprehension/0",
+            "term": 1,
+            "title": "Reading Comprehension task 1"
+          },
+          {
+            "academic_year": 2025,
+            "id": "L001-spa-2025-1-0",
+            "kind": "assessment",
+            "learner_id": "L001",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2025-03-10",
+            "recorded_at": "2025-03-28",
+            "reliable": 1,
+            "score": 80.0,
+            "skill": "spatial_reasoning",
+            "source": "synthetic://L001/2025/T1/spatial_reasoning/0",
+            "term": 1,
+            "title": "Spatial Reasoning task 1"
+          },
+          {
+            "academic_year": 2025,
+            "id": "L001-rea-2025-1-1",
+            "kind": "assessment",
+            "learner_id": "L001",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2025-03-18",
+            "recorded_at": "2025-03-28",
+            "reliable": 1,
+            "score": 47.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://L001/2025/T1/reading_comprehension/1",
+            "term": 1,
+            "title": "Reading Comprehension task 2"
+          },
+          {
+            "academic_year": 2025,
+            "id": "L001-spa-2025-1-1",
+            "kind": "assessment",
+            "learner_id": "L001",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2025-03-18",
+            "recorded_at": "2025-03-28",
+            "reliable": 1,
+            "score": 76.0,
+            "skill": "spatial_reasoning",
+            "source": "synthetic://L001/2025/T1/spatial_reasoning/1",
+            "term": 1,
+            "title": "Spatial Reasoning task 2"
+          },
+          {
+            "academic_year": 2025,
+            "id": "L001-rea-2025-2-0",
+            "kind": "assessment",
+            "learner_id": "L001",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2025-06-10",
+            "recorded_at": "2025-06-28",
+            "reliable": 1,
+            "score": 58.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://L001/2025/T2/reading_comprehension/0",
+            "term": 2,
+            "title": "Reading Comprehension task 1"
+          },
+          {
+            "academic_year": 2025,
+            "id": "L001-spa-2025-2-0",
+            "kind": "assessment",
+            "learner_id": "L001",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2025-06-10",
+            "recorded_at": "2025-06-28",
+            "reliable": 1,
+            "score": 76.0,
+            "skill": "spatial_reasoning",
+            "source": "synthetic://L001/2025/T2/spatial_reasoning/0",
+            "term": 2,
+            "title": "Spatial Reasoning task 1"
+          },
+          {
+            "academic_year": 2025,
+            "id": "L001-rea-2025-2-1",
+            "kind": "assessment",
+            "learner_id": "L001",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2025-06-18",
+            "recorded_at": "2025-06-28",
+            "reliable": 1,
+            "score": 54.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://L001/2025/T2/reading_comprehension/1",
+            "term": 2,
+            "title": "Reading Comprehension task 2"
+          },
+          {
+            "academic_year": 2025,
+            "id": "L001-spa-2025-2-1",
+            "kind": "assessment",
+            "learner_id": "L001",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2025-06-18",
+            "recorded_at": "2025-06-28",
+            "reliable": 1,
+            "score": 72.0,
+            "skill": "spatial_reasoning",
+            "source": "synthetic://L001/2025/T2/spatial_reasoning/1",
+            "term": 2,
+            "title": "Spatial Reasoning task 2"
+          },
+          {
+            "academic_year": 2025,
+            "id": "L001-rea-2025-3-0",
+            "kind": "assessment",
+            "learner_id": "L001",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2025-09-10",
+            "recorded_at": "2025-09-28",
+            "reliable": 1,
+            "score": 68.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://L001/2025/T3/reading_comprehension/0",
+            "term": 3,
+            "title": "Reading Comprehension task 1"
+          },
+          {
+            "academic_year": 2025,
+            "id": "L001-spa-2025-3-0",
+            "kind": "assessment",
+            "learner_id": "L001",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2025-09-10",
+            "recorded_at": "2025-09-28",
+            "reliable": 1,
+            "score": 82.0,
+            "skill": "spatial_reasoning",
+            "source": "synthetic://L001/2025/T3/spatial_reasoning/0",
+            "term": 3,
+            "title": "Spatial Reasoning task 1"
+          },
+          {
+            "academic_year": 2025,
+            "id": "L001-rea-2025-3-1",
+            "kind": "assessment",
+            "learner_id": "L001",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2025-09-18",
+            "recorded_at": "2025-09-28",
+            "reliable": 1,
+            "score": 64.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://L001/2025/T3/reading_comprehension/1",
+            "term": 3,
+            "title": "Reading Comprehension task 2"
+          },
+          {
+            "academic_year": 2025,
+            "id": "L001-spa-2025-3-1",
+            "kind": "assessment",
+            "learner_id": "L001",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2025-09-18",
+            "recorded_at": "2025-09-28",
+            "reliable": 1,
+            "score": 78.0,
+            "skill": "spatial_reasoning",
+            "source": "synthetic://L001/2025/T3/spatial_reasoning/1",
+            "term": 3,
+            "title": "Spatial Reasoning task 2"
+          },
+          {
+            "academic_year": 2026,
+            "id": "L001-rea-2026-1-0",
+            "kind": "assessment",
+            "learner_id": "L001",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2026-03-10",
+            "recorded_at": "2026-03-28",
+            "reliable": 1,
+            "score": 76.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://L001/2026/T1/reading_comprehension/0",
+            "term": 1,
+            "title": "Reading Comprehension task 1"
+          },
+          {
+            "academic_year": 2026,
+            "id": "L001-spa-2026-1-0",
+            "kind": "assessment",
+            "learner_id": "L001",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2026-03-10",
+            "recorded_at": "2026-03-28",
+            "reliable": 1,
+            "score": 85.0,
+            "skill": "spatial_reasoning",
+            "source": "synthetic://L001/2026/T1/spatial_reasoning/0",
+            "term": 1,
+            "title": "Spatial Reasoning task 1"
+          },
+          {
+            "academic_year": 2026,
+            "id": "L001-rea-2026-1-1",
+            "kind": "assessment",
+            "learner_id": "L001",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2026-03-18",
+            "recorded_at": "2026-03-28",
+            "reliable": 1,
+            "score": 72.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://L001/2026/T1/reading_comprehension/1",
+            "term": 1,
+            "title": "Reading Comprehension task 2"
+          },
+          {
+            "academic_year": 2026,
+            "id": "L001-spa-2026-1-1",
+            "kind": "assessment",
+            "learner_id": "L001",
+            "maximum": 100.0,
+            "note": "",
+            "observed_at": "2026-03-18",
+            "recorded_at": "2026-03-28",
+            "reliable": 1,
+            "score": 81.0,
+            "skill": "spatial_reasoning",
+            "source": "synthetic://L001/2026/T1/spatial_reasoning/1",
+            "term": 1,
+            "title": "Spatial Reasoning task 2"
+          },
+          {
+            "academic_year": 2026,
+            "id": "L001-note-1",
+            "kind": "observation",
+            "learner_id": "L001",
+            "maximum": null,
+            "note": "Asked for extra time to reread the passage. Late entry from a paper notebook.",
+            "observed_at": "2026-03-20",
+            "recorded_at": "2026-04-12",
+            "reliable": 1,
+            "score": null,
+            "skill": "reading_comprehension",
+            "source": "synthetic://teacher-notes/late-entry-1",
+            "term": 1,
+            "title": "Teacher observation"
+          },
+          {
+            "academic_year": 2026,
+            "id": "L001-uncertain-1",
+            "kind": "assessment",
+            "learner_id": "L001",
+            "maximum": 100.0,
+            "note": "Digit may be 38 or 98. Teacher verification pending.",
+            "observed_at": "2026-03-22",
+            "recorded_at": "2026-03-23",
+            "reliable": 0,
+            "score": 98.0,
+            "skill": "reading_comprehension",
+            "source": "synthetic://paper-register/uncertain",
+            "term": 1,
+            "title": "Unclear handwritten mark"
+          }
+        ],
+        "learner_id": "L001",
+        "revision": 1,
+        "scope": "all",
+        "term_count": 6,
+        "year_count": 3
+      },
+      "run_id": "216fcee6f0b24269a9d272b4b322a407",
+      "status": "ok"
+    },
+    {
+      "id": 11,
+      "at": "2026-11-12T11:48:51.128+00:00",
+      "actor": "agent",
+      "action": "model_plan",
+      "inputs": {
+        "goal": "Review this learner's assessment history for sustained patterns and changes.",
+        "minimum_terms": 3,
+        "observations": {
+          "scope": "all",
+          "term_count": 6,
+          "year_count": 3
+        },
+        "options": [
+          "assess_trajectory",
+          "assess_consistency"
+        ],
+        "previous_error": ""
+      },
+      "outputs": {
+        "decision": {
+          "action": "invalid",
+          "raw": "{\"action\": \"review_assessment_history\", \"reason\": \"Review the learner's assessment history for sustained patterns and changes.\"}",
+          "reason": "Action is outside the available tool choices"
+        },
+        "usage": {
+          "api_cost_usd": 0,
+          "execution": "local_open_weights",
+          "input_tokens": 169,
+          "latency_ms": 1928,
+          "model": "Qwen/Qwen2.5-0.5B-Instruct",
+          "output_tokens": 27
+        }
+      },
+      "run_id": "216fcee6f0b24269a9d272b4b322a407",
+      "status": "ok"
+    },
+    {
+      "id": 12,
+      "at": "2026-11-12T11:48:54.006+00:00",
+      "actor": "agent",
+      "action": "model_plan",
+      "inputs": {
+        "goal": "Review this learner's assessment history for sustained patterns and changes.",
+        "minimum_terms": 3,
+        "observations": {
+          "scope": "all",
+          "term_count": 6,
+          "year_count": 3
+        },
+        "options": [
+          "assess_trajectory",
+          "assess_consistency"
+        ],
+        "previous_error": "Action is outside the available tool choices"
+      },
+      "outputs": {
+        "decision": {
+          "action": "invalid",
+          "raw": "{\"action\": \"review_assessment_history\", \"reason\": \"Review the learner's assessment history for sustained patterns and changes.\"}",
+          "reason": "Action is outside the available tool choices"
+        },
+        "usage": {
+          "api_cost_usd": 0,
+          "execution": "local_open_weights",
+          "input_tokens": 177,
+          "latency_ms": 2868,
+          "model": "Qwen/Qwen2.5-0.5B-Instruct",
+          "output_tokens": 27
+        }
+      },
+      "run_id": "216fcee6f0b24269a9d272b4b322a407",
+      "status": "ok"
+    },
+    {
+      "id": 13,
+      "at": "2026-11-12T11:48:56.932+00:00",
+      "actor": "agent",
+      "action": "model_plan",
+      "inputs": {
+        "goal": "Review this learner's assessment history for sustained patterns and changes.",
+        "minimum_terms": 3,
+        "observations": {
+          "scope": "all",
+          "term_count": 6,
+          "year_count": 3
+        },
+        "options": [
+          "assess_trajectory",
+          "assess_consistency"
+        ],
+        "previous_error": "Action is outside the available tool choices"
+      },
+      "outputs": {
+        "decision": {
+          "action": "invalid",
+          "raw": "{\"action\": \"review_assessment_history\", \"reason\": \"Review the learner's assessment history for sustained patterns and changes.\"}",
+          "reason": "Action is outside the available tool choices"
+        },
+        "usage": {
+          "api_cost_usd": 0,
+          "execution": "local_open_weights",
+          "input_tokens": 177,
+          "latency_ms": 2919,
+          "model": "Qwen/Qwen2.5-0.5B-Instruct",
+          "output_tokens": 27
+        }
+      },
+      "run_id": "216fcee6f0b24269a9d272b4b322a407",
+      "status": "ok"
+    },
+    {
+      "id": 14,
+      "at": "2026-11-12T11:48:59.744+00:00",
+      "actor": "agent",
+      "action": "model_plan",
+      "inputs": {
+        "goal": "Review this learner's assessment history for sustained patterns and changes.",
+        "minimum_terms": 3,
+        "observations": {
+          "scope": "all",
+          "term_count": 6,
+          "year_count": 3
+        },
+        "options": [
+          "assess_trajectory",
+          "assess_consistency"
+        ],
+        "previous_error": "Action is outside the available tool choices"
+      },
+      "outputs": {
+        "decision": {
+          "action": "invalid",
+          "raw": "{\"action\": \"review_assessment_history\", \"reason\": \"Review the learner's assessment history for sustained patterns and changes.\"}",
+          "reason": "Action is outside the available tool choices"
+        },
+        "usage": {
+          "api_cost_usd": 0,
+          "execution": "local_open_weights",
+          "input_tokens": 177,
+          "latency_ms": 2804,
+          "model": "Qwen/Qwen2.5-0.5B-Instruct",
+          "output_tokens": 27
+        }
+      },
+      "run_id": "216fcee6f0b24269a9d272b4b322a407",
+      "status": "ok"
+    },
+    {
+      "id": 15,
+      "at": "2026-11-12T11:49:02.600+00:00",
+      "actor": "agent",
+      "action": "model_plan",
+      "inputs": {
+        "goal": "Review this learner's assessment history for sustained patterns and changes.",
+        "minimum_terms": 3,
+        "observations": {
+          "scope": "all",
+          "term_count": 6,
+          "year_count": 3
+        },
+        "options": [
+          "assess_trajectory",
+          "assess_consistency"
+        ],
+        "previous_error": "Action is outside the available tool choices"
+      },
+      "outputs": {
+        "decision": {
+          "action": "invalid",
+          "raw": "{\"action\": \"review_assessment_history\", \"reason\": \"Review the learner's assessment history for sustained patterns and changes.\"}",
+          "reason": "Action is outside the available tool choices"
+        },
+        "usage": {
+          "api_cost_usd": 0,
+          "execution": "local_open_weights",
+          "input_tokens": 177,
+          "latency_ms": 2849,
+          "model": "Qwen/Qwen2.5-0.5B-Instruct",
+          "output_tokens": 27
+        }
+      },
+      "run_id": "216fcee6f0b24269a9d272b4b322a407",
+      "status": "ok"
+    },
+    {
+      "id": 16,
+      "at": "2026-11-12T11:49:05.425+00:00",
+      "actor": "agent",
+      "action": "model_plan",
+      "inputs": {
+        "goal": "Review this learner's assessment history for sustained patterns and changes.",
+        "minimum_terms": 3,
+        "observations": {
+          "scope": "all",
+          "term_count": 6,
+          "year_count": 3
+        },
+        "options": [
+          "assess_trajectory",
+          "assess_consistency"
+        ],
+        "previous_error": "Action is outside the available tool choices"
+      },
+      "outputs": {
+        "decision": {
+          "action": "invalid",
+          "raw": "{\"action\": \"review_assessment_history\", \"reason\": \"Review the learner's assessment history for sustained patterns and changes.\"}",
+          "reason": "Action is outside the available tool choices"
+        },
+        "usage": {
+          "api_cost_usd": 0,
+          "execution": "local_open_weights",
+          "input_tokens": 177,
+          "latency_ms": 2819,
+          "model": "Qwen/Qwen2.5-0.5B-Instruct",
+          "output_tokens": 27
+        }
+      },
+      "run_id": "216fcee6f0b24269a9d272b4b322a407",
+      "status": "ok"
+    },
+    {
+      "id": 17,
+      "at": "2026-11-12T11:49:08.242+00:00",
+      "actor": "agent",
+      "action": "model_plan",
+      "inputs": {
+        "goal": "Review this learner's assessment history for sustained patterns and changes.",
+        "minimum_terms": 3,
+        "observations": {
+          "scope": "all",
+          "term_count": 6,
+          "year_count": 3
+        },
+        "options": [
+          "assess_trajectory",
+          "assess_consistency"
+        ],
+        "previous_error": "Action is outside the available tool choices"
+      },
+      "outputs": {
+        "decision": {
+          "action": "invalid",
+          "raw": "{\"action\": \"review_assessment_history\", \"reason\": \"Review the learner's assessment history for sustained patterns and changes.\"}",
+          "reason": "Action is outside the available tool choices"
+        },
+        "usage": {
+          "api_cost_usd": 0,
+          "execution": "local_open_weights",
+          "input_tokens": 177,
+          "latency_ms": 2811,
+          "model": "Qwen/Qwen2.5-0.5B-Instruct",
+          "output_tokens": 27
+        }
+      },
+      "run_id": "216fcee6f0b24269a9d272b4b322a407",
+      "status": "ok"
+    },
+    {
+      "id": 18,
+      "at": "2026-11-12T11:49:11.076+00:00",
+      "actor": "agent",
+      "action": "model_plan",
+      "inputs": {
+        "goal": "Review this learner's assessment history for sustained patterns and changes.",
+        "minimum_terms": 3,
+        "observations": {
+          "scope": "all",
+          "term_count": 6,
+          "year_count": 3
+        },
+        "options": [
+          "assess_trajectory",
+          "assess_consistency"
+        ],
+        "previous_error": "Action is outside the available tool choices"
+      },
+      "outputs": {
+        "decision": {
+          "action": "invalid",
+          "raw": "{\"action\": \"review_assessment_history\", \"reason\": \"Review the learner's assessment history for sustained patterns and changes.\"}",
+          "reason": "Action is outside the available tool choices"
+        },
+        "usage": {
+          "api_cost_usd": 0,
+          "execution": "local_open_weights",
+          "input_tokens": 177,
+          "latency_ms": 2825,
+          "model": "Qwen/Qwen2.5-0.5B-Instruct",
+          "output_tokens": 27
+        }
+      },
+      "run_id": "216fcee6f0b24269a9d272b4b322a407",
+      "status": "ok"
+    },
+    {
+      "id": 19,
+      "at": "2026-11-12T11:49:13.886+00:00",
+      "actor": "agent",
+      "action": "model_plan",
+      "inputs": {
+        "goal": "Review this learner's assessment history for sustained patterns and changes.",
+        "minimum_terms": 3,
+        "observations": {
+          "scope": "all",
+          "term_count": 6,
+          "year_count": 3
+        },
+        "options": [
+          "assess_trajectory",
+          "assess_consistency"
+        ],
+        "previous_error": "Action is outside the available tool choices"
+      },
+      "outputs": {
+        "decision": {
+          "action": "invalid",
+          "raw": "{\"action\": \"review_assessment_history\", \"reason\": \"Review the learner's assessment history for sustained patterns and changes.\"}",
+          "reason": "Action is outside the available tool choices"
+        },
+        "usage": {
+          "api_cost_usd": 0,
+          "execution": "local_open_weights",
+          "input_tokens": 177,
+          "latency_ms": 2804,
+          "model": "Qwen/Qwen2.5-0.5B-Instruct",
+          "output_tokens": 27
+        }
+      },
+      "run_id": "216fcee6f0b24269a9d272b4b322a407",
+      "status": "ok"
+    },
+    {
+      "id": 20,
+      "at": "2026-11-12T11:49:16.680+00:00",
+      "actor": "agent",
+      "action": "model_plan",
+      "inputs": {
+        "goal": "Review this learner's assessment history for sustained patterns and changes.",
+        "minimum_terms": 3,
+        "observations": {
+          "scope": "all",
+          "term_count": 6,
+          "year_count": 3
+        },
+        "options": [
+          "assess_trajectory",
+          "assess_consistency"
+        ],
+        "previous_error": "Action is outside the available tool choices"
+      },
+      "outputs": {
+        "decision": {
+          "action": "invalid",
+          "raw": "{\"action\": \"review_assessment_history\", \"reason\": \"Review the learner's assessment history for sustained patterns and changes.\"}",
+          "reason": "Action is outside the available tool choices"
+        },
+        "usage": {
+          "api_cost_usd": 0,
+          "execution": "local_open_weights",
+          "input_tokens": 177,
+          "latency_ms": 2788,
+          "model": "Qwen/Qwen2.5-0.5B-Instruct",
+          "output_tokens": 27
+        }
+      },
+      "run_id": "216fcee6f0b24269a9d272b4b322a407",
+      "status": "ok"
+    },
+    {
+      "id": 21,
+      "at": "2026-11-12T11:49:16.781+00:00",
+      "actor": "system",
+      "action": "run_failed",
+      "inputs": {},
+      "outputs": {
+        "error": "unhandled errors in a TaskGroup (1 sub-exception)"
+      },
+      "run_id": "216fcee6f0b24269a9d272b4b322a407",
+      "status": "error"
+    }
+  ]
+}

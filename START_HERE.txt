@@ -1,0 +1,23 @@
+LEARNER EVIDENCE STUDIO — COMPLETE REBUILD
+
+1. Extract this folder into a NEW directory. It is a standalone project.
+2. Install Python 3.12 and Node.js 22 or newer.
+3. Open a terminal in this folder and run: python run.py
+   On Windows you may use: py -3.12 run.py
+4. Open http://127.0.0.1:8088
+5. Username: demo.teacher
+   Demo password: lesson-demo-2026
+6. Select Learner A, then Review evidence.
+
+To use Gemini, copy .env.example to .env, set GEMINI_API_KEY, restart,
+and select Gemini in the workspace. Azure is not required.
+
+README.md has complete setup instructions.
+moodle/SETUP.md covers the optional Moodle importer.
+EVALS.md records what passed, failed and was not tested.
+SUBMISSION_STATUS.md explains what remains before public submission.
+evaluation/demo/agent-demo.mp4 is a recording of an actual local agent run.
+
+All application source files are complete. API keys, Moodle IDs and school
+settings are your deployment inputs. Model weights and installed dependencies
+are downloaded by the setup process and are not included in the ZIP.

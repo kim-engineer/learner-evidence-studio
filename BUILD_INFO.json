@@ -1,0 +1,25 @@
+{
+  "project": "Learner Evidence Studio",
+  "version": "1.0.0",
+  "prepared_at": "2026-11-12T15:28:24+03:00",
+  "source": "Original standalone application written for Werevu Academy with AI coding assistance",
+  "verification": {
+    "pytest_passed": 23,
+    "expected_failure": 1,
+    "real_open_weights_trials": 6,
+    "all_trials_completed": true,
+    "fresh_native_bootstrap": "passed",
+    "dom_integration": "passed",
+    "live_gemini": "not tested",
+    "live_moodle": "not tested",
+    "docker": "not executed",
+    "visual_browser_audit": "not performed",
+    "windows": "User-reported local review stall after rubric read; no completed review verified; unresolved"
+  },
+  "weights_and_installed_dependencies_included": false,
+  "publication": {
+    "repository": "https://github.com/kim-engineer/learner-evidence-studio",
+    "prepared_on": "2026-11-16",
+    "changes": "Publication documentation and Windows limitation note; application code unchanged from 2026-11-12 build"
+  }
+}
